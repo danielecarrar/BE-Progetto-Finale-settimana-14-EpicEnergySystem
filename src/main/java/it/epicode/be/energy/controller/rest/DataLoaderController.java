@@ -19,14 +19,14 @@ public class DataLoaderController {
 	@Autowired
 	DataSourceLoader loader;
 	
-	@GetMapping("/province")
+	@GetMapping("/aggiungiprovince")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	public ResponseEntity<String> aggiungiProvince(){
 		loader.caricaProvince();
 		return new ResponseEntity<>("Caricamento province italiane completato!!", HttpStatus.OK);
 	}
 	
-	@GetMapping("/comuni")
+	@GetMapping("/aggiungicomuni")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	public ResponseEntity<String> aggiungiComuni(){
 		loader.caricaComuni();
