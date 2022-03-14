@@ -33,7 +33,7 @@ import it.epicode.be.energy.security.util.JwtUtils;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-	
+
 	@Autowired
 	PasswordEncoder encoder;
 
@@ -42,7 +42,7 @@ public class AuthController {
 
 	@Autowired
 	UserRepository userRepository;
-	
+
 	@Autowired
 	RoleRepository roleRepository;
 
@@ -67,7 +67,7 @@ public class AuthController {
 
 		return ResponseEntity.ok(loginResponse);
 	}
-	
+
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@RequestBody RequestRegisterUser registerUser) throws Exception {
 
@@ -108,7 +108,8 @@ public class AuthController {
 
 		}
 		userRepository.save(userReg);
-		return new ResponseEntity<>("Utente inserito con successo, ecco i dati: " + userReg.toString(), HttpStatus.CREATED);
+		return new ResponseEntity<>("Utente inserito con successo, ecco i dati: " + userReg.toString(),
+				HttpStatus.CREATED);
 
 	}
 

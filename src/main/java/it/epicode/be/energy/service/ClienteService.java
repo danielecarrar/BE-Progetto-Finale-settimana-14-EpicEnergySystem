@@ -49,11 +49,13 @@ public class ClienteService {
 
 	}
 
-	public Page<Cliente> findByDataUltimoContatto(int d, int m, int y, Pageable pageable) {
+	public Page<Cliente> findByDataUltimoContatto(int giorno, int mese, int anno, Pageable pageable) {
 		try {
+			// creo e valorizzo la data da cercare con i parametri in input
 			Calendar calendario = Calendar.getInstance();
-			calendario.set(y, m, d);
+			calendario.set(anno, mese, giorno);
 			Date data = calendario.getTime();
+
 			return clienteRepository.findAllByDataUltimoContatto(data, pageable);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -109,9 +111,9 @@ public class ClienteService {
 		}
 	}
 
-	public Page<Fattura> findFatturaByIdCliente(Long id, Pageable pageable) {
+	public Page<Fattura> findFatturaByIdCliente(Long IDCliente, Pageable pageable) {
 		try {
-			return fatturaRepository.findFatturaByIdCliente(id, pageable);
+			return fatturaRepository.findFatturaByIdCliente(IDCliente, pageable);
 		} catch (Exception e) {
 
 			e.printStackTrace();
@@ -128,7 +130,7 @@ public class ClienteService {
 			Cliente daEliminare = clienteRepository.findById(id).get();
 
 			// setto a null i valori del cliente, per evitare errori ed eliminare senza
-			// utilizzo di cascade, da controllare
+			// utilizzo di cascade
 
 			daEliminare.setSedeLegale(null);
 
@@ -144,23 +146,23 @@ public class ClienteService {
 	public Cliente update(Long id, Cliente cliente) {
 		Optional<Cliente> clienteResult = clienteRepository.findById(id);
 		if (clienteResult.isPresent()) {
-			Cliente update = clienteResult.get();
-			update.setRagioneSociale(cliente.getRagioneSociale());
-			update.setDataInserimento(cliente.getDataInserimento());
-			update.setDataUltimoContatto(cliente.getDataUltimoContatto());
-			update.setIva(cliente.getIva());
-			update.setNomeContatto(cliente.getNomeContatto());
-			update.setCognomeContatto(cliente.getCognomeContatto());
-			update.setEmailContatto(cliente.getEmailContatto());
-			update.setNumeroContatto(cliente.getNumeroContatto());
-			update.setFatturatoAnnuale(cliente.getFatturatoAnnuale());
-			update.setPec(cliente.getPec());
-			update.setEmail(cliente.getEmail());
-			update.setSedeLegale(cliente.getSedeLegale());
-			update.setSedeOperativa(cliente.getSedeOperativa());
-			update.setTelefono(cliente.getTelefono());
-			update.setTipologiaCliente(cliente.getTipologiaCliente());
-			return clienteRepository.save(update);
+			Cliente clienteAggiornato = clienteResult.get();
+			clienteAggiornato.setRagioneSociale(cliente.getRagioneSociale());
+			clienteAggiornato.setDataInserimento(cliente.getDataInserimento());
+			clienteAggiornato.setDataUltimoContatto(cliente.getDataUltimoContatto());
+			clienteAggiornato.setIva(cliente.getIva());
+			clienteAggiornato.setNomeContatto(cliente.getNomeContatto());
+			clienteAggiornato.setCognomeContatto(cliente.getCognomeContatto());
+			clienteAggiornato.setEmailContatto(cliente.getEmailContatto());
+			clienteAggiornato.setNumeroContatto(cliente.getNumeroContatto());
+			clienteAggiornato.setFatturatoAnnuale(cliente.getFatturatoAnnuale());
+			clienteAggiornato.setPec(cliente.getPec());
+			clienteAggiornato.setEmail(cliente.getEmail());
+			clienteAggiornato.setSedeLegale(cliente.getSedeLegale());
+			clienteAggiornato.setSedeOperativa(cliente.getSedeOperativa());
+			clienteAggiornato.setTelefono(cliente.getTelefono());
+			clienteAggiornato.setTipologiaCliente(cliente.getTipologiaCliente());
+			return clienteRepository.save(clienteAggiornato);
 		}
 		return null;
 	}
@@ -206,5 +208,4 @@ public class ClienteService {
 	public List<Cliente> findAll() {
 		return clienteRepository.findAll();
 	}
-
 }

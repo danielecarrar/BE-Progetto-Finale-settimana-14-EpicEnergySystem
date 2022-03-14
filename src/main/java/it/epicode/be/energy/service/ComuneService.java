@@ -14,43 +14,43 @@ import it.epicode.be.energy.repository.ComuneRepository;
 public class ComuneService {
 
 	@Autowired
-	ComuneRepository comuneRepo;
+	ComuneRepository comuneRepository;
 
 	public Comune save(Comune comune) {
-		return comuneRepo.save(comune);
+		return comuneRepository.save(comune);
 	}
 
 	public Optional<Comune> findByNome(String nome) {
-		return comuneRepo.findByNome(nome);
+		return comuneRepository.findByNome(nome);
 	}
 
 	public Page<Comune> findAll(Pageable pageable) {
-		return comuneRepo.findAll(pageable);
+		return comuneRepository.findAll(pageable);
 	}
 
 	public Optional<Comune> findById(Long id) {
-		return comuneRepo.findById(id);
+		return comuneRepository.findById(id);
 	}
 
 	public void delete(Long id) {
-		if (comuneRepo.findById(id).isPresent()) {
-			Comune c = comuneRepo.findById(id).get();
-			c.setProvincia(null);
-			comuneRepo.delete(c);
+		if (comuneRepository.findById(id).isPresent()) {
+			Comune comune = comuneRepository.findById(id).get();
+			comune.setProvincia(null);
+			comuneRepository.delete(comune);
 		}
 
 	}
 
-	public Comune update(Long id, Comune comune) {
-		Optional<Comune> comuneResult = comuneRepo.findById(id);
-		if (comuneResult.isPresent()) {
-			Comune update = comuneResult.get();
-			update.setNome(comune.getNome());
-			update.setProvincia(comune.getProvincia());
+	public Comune update(Long id, Comune comuneInserito) {
+		Optional<Comune> comune = comuneRepository.findById(id);
+		
+		if (comune.isPresent()) {
+			Comune comuneDaAggiornare = comune.get();
+			comuneDaAggiornare.setNome(comuneInserito.getNome());
+			comuneDaAggiornare.setProvincia(comuneInserito.getProvincia());
 
-			return comuneRepo.save(update);
+			return comuneRepository.save(comuneDaAggiornare);
 		}
-		return null; // TODO implementare eccezione relativa.
+		return null;
 	}
-
 }

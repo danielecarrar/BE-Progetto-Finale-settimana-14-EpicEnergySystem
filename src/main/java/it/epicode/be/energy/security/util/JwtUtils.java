@@ -12,7 +12,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import it.epicode.be.energy.security.service.UserDetailsImpl;
 
-
 @Component
 public class JwtUtils {
 	private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);

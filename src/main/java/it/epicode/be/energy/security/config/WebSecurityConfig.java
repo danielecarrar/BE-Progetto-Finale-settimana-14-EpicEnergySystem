@@ -52,8 +52,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.headers().frameOptions().sameOrigin().and().csrf().disable().authorizeRequests().antMatchers("/auth/**")
-				.permitAll().antMatchers("/public/**")
-				.permitAll().antMatchers("/api/**").authenticated().and().exceptionHandling()
+				.permitAll().antMatchers("/public/**").permitAll().antMatchers("/api/**").authenticated().and()
+				.exceptionHandling()
 				.authenticationEntryPoint((req, res, ex) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED,
 						"UNAUTHORIZED : " + ex.getMessage()))
 				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()

@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 public class RequestRegisterUser {
-	
+
 	private String userName;
 	private String password;
 	private String email;

@@ -12,13 +12,13 @@ import it.epicode.be.energy.repository.ProvinciaRepository;
 public class ProvinciaService {
 
 	@Autowired
-	ProvinciaRepository provinciaRepo;
+	ProvinciaRepository provinciaRepository;
 
 	public Provincia save(Provincia provincia) {
-		return provinciaRepo.save(provincia);
+		return provinciaRepository.save(provincia);
 	}
 
 	public Optional<Provincia> findBySigla(String sigla) {
-		return provinciaRepo.findBySigla(sigla);
+		return provinciaRepository.findBySigla(sigla);
 	}
 }

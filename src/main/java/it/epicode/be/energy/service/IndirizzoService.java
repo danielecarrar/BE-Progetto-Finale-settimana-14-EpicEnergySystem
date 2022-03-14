@@ -13,52 +13,53 @@ import it.epicode.be.energy.repository.IndirizzoRepository;
 
 @Service
 public class IndirizzoService {
-	
+
 	@Autowired
 	IndirizzoRepository indirizzoRepository;
-	
+
 	public Page<Indirizzo> findAll(Pageable pageable) {
 		return indirizzoRepository.findAll(pageable);
 	}
-	
+
 	public Optional<Indirizzo> findById(Long id) {
 		return indirizzoRepository.findById(id);
 	}
-	
+
 	public Indirizzo save(Indirizzo indirizzo) {
-		Indirizzo i = new Indirizzo();
-		i.setVia(indirizzo.getVia());
-		i.setCivico(indirizzo.getCivico());
-		i.setCap(indirizzo.getCap());
-		i.setComune(indirizzo.getComune());
-		i.setLocalita(indirizzo.getLocalita());
-		return indirizzoRepository.save(i);
+		Indirizzo ind = new Indirizzo();
+		ind.setVia(indirizzo.getVia());
+		ind.setCivico(indirizzo.getCivico());
+		ind.setCap(indirizzo.getCap());
+		ind.setComune(indirizzo.getComune());
+		ind.setLocalita(indirizzo.getLocalita());
+		return indirizzoRepository.save(ind);
 	}
-	
+
 	public void delete(Long id) {
 		if (indirizzoRepository.findById(id).isPresent()) {
-			Indirizzo i = indirizzoRepository.findById(id).get();
-			i.setComune(null);
-			indirizzoRepository.delete(i);
+			Indirizzo ind = indirizzoRepository.findById(id).get();
+			ind.setComune(null);
+			indirizzoRepository.delete(ind);
 		}
-	
+
 	}
-	
+
 	public Indirizzo update(Long id, Indirizzo indirizzo) {
-		Optional<Indirizzo> result = indirizzoRepository.findById(id);
-		if (result.isPresent()) {
-			Indirizzo update = result.get();
-			update.setCap(indirizzo.getCap());
-			update.setCivico(indirizzo.getCivico());
-			update.setComune(indirizzo.getComune());
-			update.setVia(indirizzo.getVia());
-			update.setLocalita(indirizzo.getLocalita());
-			update.setId(update.getId());
-			return update;
-		}
-		else {
+		Optional<Indirizzo> indirizzoTrovato = indirizzoRepository.findById(id);
+		if (indirizzoTrovato.isPresent()) {
+			
+			Indirizzo indirizzoDaAggiornare = indirizzoTrovato.get();
+			
+			indirizzoDaAggiornare.setCap(indirizzo.getCap());
+			indirizzoDaAggiornare.setCivico(indirizzo.getCivico());
+			indirizzoDaAggiornare.setComune(indirizzo.getComune());
+			indirizzoDaAggiornare.setVia(indirizzo.getVia());
+			indirizzoDaAggiornare.setLocalita(indirizzo.getLocalita());
+			
+			return indirizzoDaAggiornare;
+			
+		} else {
 			throw new EnergySystemException("Indirizzo non presente!");
 		}
 	}
-
 }

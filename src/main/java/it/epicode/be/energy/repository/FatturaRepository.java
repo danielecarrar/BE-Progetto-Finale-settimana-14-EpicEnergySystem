@@ -12,14 +12,14 @@ import it.epicode.be.energy.model.Fattura;
 public interface FatturaRepository extends JpaRepository<Fattura, Long> {
 
 	public Page<Fattura> findAll(Pageable pageable);
-	
+
 	@Query("Select f from Fattura f where f.stato= :stato")
 	public Page<Fattura> findAllByStato(String stato, Pageable pageable);
 
 	@Query("Select f from Fattura f where f.cliente.id=:id")
 	public Page<Fattura> findFatturaByIdCliente(Long id, Pageable pageable);
 
-	//PER RICERCA RANGE DI IMPORTO IN FATTURA
+	// PER RICERCA RANGE DI IMPORTO IN FATTURA
 	@Query("Select f from Fattura f where f.importo between :min and :max")
 	public Page<Fattura> findByRange(BigDecimal min, BigDecimal max, Pageable pageable);
 

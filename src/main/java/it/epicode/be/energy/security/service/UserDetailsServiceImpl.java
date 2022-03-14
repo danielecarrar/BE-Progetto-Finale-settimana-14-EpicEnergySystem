@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import it.epicode.be.energy.security.model.User;
 import it.epicode.be.energy.security.repository.UserRepository;
 
-
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 

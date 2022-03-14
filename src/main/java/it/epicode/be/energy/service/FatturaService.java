@@ -16,11 +16,11 @@ import it.epicode.be.energy.repository.FatturaRepository;
 public class FatturaService {
 
 	@Autowired
-	FatturaRepository fatturaRepo;
+	FatturaRepository fatturaRepository;
 
 	public Page<Fattura> findByStato(String statoFattura, Pageable pageable) {
 		try {
-			Page<Fattura> fatture = fatturaRepo.findAllByStato(statoFattura, pageable);
+			Page<Fattura> fatture = fatturaRepository.findAllByStato(statoFattura, pageable);
 			if (fatture.hasContent()) {
 				return fatture;
 			} else
@@ -31,54 +31,53 @@ public class FatturaService {
 
 	}
 
-	public Page<Fattura> findFatturaByClienteId(Long idCliente, Pageable pageable) {
+	public Page<Fattura> findFatturaByClienteId(Long IDCliente, Pageable pageable) {
 		try {
-			return fatturaRepo.findFatturaByIdCliente(idCliente, pageable);
+			return fatturaRepository.findFatturaByIdCliente(IDCliente, pageable);
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}
 
 	}
-	
+
 	public Page<Fattura> findByRange(BigDecimal min, BigDecimal max, Pageable pageable) {
 		try {
-			return fatturaRepo.findByRange(min, max, pageable);
+			return fatturaRepository.findByRange(min, max, pageable);
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}
 	}
 
 	public Fattura save(Fattura fattura) {
-		return fatturaRepo.save(fattura);
+		return fatturaRepository.save(fattura);
 	}
 
 	public void delete(Long id) {
-		Optional<Fattura> result = fatturaRepo.findById(id);
-		if (result.isPresent()) {
-			result.get().setCliente(null);
-			fatturaRepo.deleteById(id);
+		Optional<Fattura> fatturaDaEliminare = fatturaRepository.findById(id);
+		if (fatturaDaEliminare.isPresent()) {
+			fatturaDaEliminare.get().setCliente(null);
+			fatturaRepository.deleteById(id);
 		} else {
 			throw new EnergySystemException("Nessun Risultato!");
 		}
 	}
-	
+
 	public Fattura update(Long id, Fattura fattura) {
-		Optional<Fattura> fatturaResult = fatturaRepo.findById(id);
-		if (fatturaResult.isPresent()) {
-			Fattura update = fatturaResult.get();
-			update.setNumeroFattura(fattura.getNumeroFattura());
-			update.setAnno(fattura.getAnno());
-			update.setData(fattura.getData());
-			update.setImporto(fattura.getImporto());
-			update.setStato(fattura.getStato());
-			update.setCliente(fattura.getCliente());
-			return fatturaRepo.save(update);
-		}
-		else 
+		Optional<Fattura> fatturaDB = fatturaRepository.findById(id);
+		if (fatturaDB.isPresent()) {
+			Fattura fatturaDaAggiornare = fatturaDB.get();
+			fatturaDaAggiornare.setNumeroFattura(fattura.getNumeroFattura());
+			fatturaDaAggiornare.setAnno(fattura.getAnno());
+			fatturaDaAggiornare.setData(fattura.getData());
+			fatturaDaAggiornare.setImporto(fattura.getImporto());
+			fatturaDaAggiornare.setStato(fattura.getStato());
+			fatturaDaAggiornare.setCliente(fattura.getCliente());
+			return fatturaRepository.save(fatturaDaAggiornare);
+		} else
 			throw new EnergySystemException("Impossibile aggiornare la fattura!");
 	}
-	
+
 	public Page<Fattura> findAll(Pageable pageable) {
-		return fatturaRepo.findAll(pageable);
+		return fatturaRepository.findAll(pageable);
 	}
 }

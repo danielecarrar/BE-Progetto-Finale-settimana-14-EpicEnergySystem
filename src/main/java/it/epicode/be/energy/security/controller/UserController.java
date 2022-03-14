@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import it.epicode.be.energy.security.model.User;
 import it.epicode.be.energy.security.service.UserService;
 
-
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -33,5 +32,4 @@ public class UserController {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
 	}
-
 }
