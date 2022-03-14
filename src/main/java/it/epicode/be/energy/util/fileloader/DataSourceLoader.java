@@ -35,8 +35,6 @@ public class DataSourceLoader implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		log.info("Dati province e comuni pronti per essere caricati!!");
-		// caricaListaProvince();
-		// caricaListaComuni();
 	}
 
 	public void caricaProvince() {
@@ -63,7 +61,6 @@ public class DataSourceLoader implements CommandLineRunner {
 				.withSkipLines(1).build()) {
 			String[] values = null;
 			while ((values = reader.readNext()) != null) {
-
 
 				Optional<Provincia> p = provinciaRepository.findByNome(values[3]);
 				if (!p.isEmpty()) {

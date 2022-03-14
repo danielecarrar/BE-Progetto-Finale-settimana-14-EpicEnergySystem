@@ -23,13 +23,13 @@ public class DataLoaderController {
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	public ResponseEntity<String> aggiungiProvince(){
 		loader.caricaProvince();
-		return new ResponseEntity<>("Caricamento province italiane completato!!", HttpStatus.OK);
+		return new ResponseEntity<>("Caricamento province italiane completato! Ora è possibile caricare i comuni!!", HttpStatus.OK);
 	}
 	
 	@GetMapping("/aggiungicomuni")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	public ResponseEntity<String> aggiungiComuni(){
 		loader.caricaComuni();
-		return new ResponseEntity<>("Caricamento di oltre 7000 comuni italiani completato!!", HttpStatus.OK);
+		return new ResponseEntity<>("Hint: Ricordati di caricare prima le province! Comuni caricati con successo!!", HttpStatus.OK);
 	}
 }
