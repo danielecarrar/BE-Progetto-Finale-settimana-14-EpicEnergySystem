@@ -1,5 +1,6 @@
 package it.epicode.be.energy.model;
-//le nostre tipologie di cliente
+
+//le varie tipologie di cliente
 public enum TipologiaCliente {
 	
 	SPA,
