@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Provincia extends EntityId {
+public class Province extends EntityId {
 
 	private String sigla;
 	

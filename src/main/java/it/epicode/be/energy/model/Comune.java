@@ -28,5 +28,5 @@ public class Comune extends EntityId {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-	private Provincia provincia;
+	private Province provincia;
 }

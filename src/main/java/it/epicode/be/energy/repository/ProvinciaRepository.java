@@ -6,13 +6,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import it.epicode.be.energy.model.Provincia;
+import it.epicode.be.energy.model.Province;
 
-public interface ProvinciaRepository extends JpaRepository<Provincia, Long> {
+public interface ProvinciaRepository extends JpaRepository<Province, Long> {
 	
-	Optional<Provincia> findBySigla(String sigla);
+	Optional<Province> findBySigla(String sigla);
 
-	public Page<Provincia> findByRegione(String regione, Pageable pageable);
+	public Page<Province> findByRegione(String regione, Pageable pageable);
 
-	Optional<Provincia> findByNome(String string);
+	Optional<Province> findByNome(String string);
 }

@@ -17,7 +17,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
 import it.epicode.be.energy.model.Comune;
-import it.epicode.be.energy.model.Provincia;
+import it.epicode.be.energy.model.Province;
 import it.epicode.be.energy.repository.ComuneRepository;
 import it.epicode.be.energy.repository.ProvinciaRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -45,7 +45,7 @@ public class DataSourceLoader implements CommandLineRunner {
 
 			while ((values = reader.readNext()) != null) {
 
-				provinciaRepository.save(new Provincia(values[0], values[1], values[2]));
+				provinciaRepository.save(new Province(values[0], values[1], values[2]));
 			}
 		} catch (FileNotFoundException e) {
 
@@ -62,7 +62,7 @@ public class DataSourceLoader implements CommandLineRunner {
 			String[] values = null;
 			while ((values = reader.readNext()) != null) {
 
-				Optional<Provincia> p = provinciaRepository.findByNome(values[3]);
+				Optional<Province> p = provinciaRepository.findByNome(values[3]);
 				if (!p.isEmpty()) {
 					comuneRepository.save(new Comune(values[2], p.get()));
 				}
@@ -74,8 +74,8 @@ public class DataSourceLoader implements CommandLineRunner {
 		}
 	}
 
-	public List<Provincia> caricaListaProvince() {
-		List<Provincia> listaProvince = new ArrayList<>();
+	public List<Province> caricaListaProvince() {
+		List<Province> listaProvince = new ArrayList<>();
 
 		CSVParser csvParser = new CSVParserBuilder().withSeparator(';').build();
 		try (CSVReader reader = new CSVReaderBuilder(new FileReader("province-italiane.csv")).withCSVParser(csvParser)
@@ -83,7 +83,7 @@ public class DataSourceLoader implements CommandLineRunner {
 			String[] values = null;
 
 			while ((values = reader.readNext()) != null) {
-				Provincia prov = new Provincia(values[0], values[1], values[2]);
+				Province prov = new Province(values[0], values[1], values[2]);
 				listaProvince.add(prov);
 			}
 		} catch (FileNotFoundException e) {
@@ -96,9 +96,9 @@ public class DataSourceLoader implements CommandLineRunner {
 	}
 
 	public void caricaListaComuni() {
-		List<Provincia> listaProvince = caricaListaProvince();
+		List<Province> listaProvince = caricaListaProvince();
 		// salvo ogni provincia nel db
-		for (Provincia p : listaProvince) {
+		for (Province p : listaProvince) {
 			provinciaRepository.save(p);
 		}
 		CSVParser csvParser = new CSVParserBuilder().withSeparator(';').build();
@@ -110,7 +110,7 @@ public class DataSourceLoader implements CommandLineRunner {
 				String nomeComune = values[2];
 				String provincia = values[3];
 
-				for (Provincia p : listaProvince) {
+				for (Province p : listaProvince) {
 					if (p.getNome().equals(provincia) && !provincia.isBlank()) {
 						c.setProvincia(p);
 						c.setNome(nomeComune);
