@@ -34,6 +34,7 @@ public class ClienteService {
 	@Autowired
 	IndirizzoRepository indirizzoRepository;
 
+	
 	public Page<Cliente> findByDataInserimento(int giorno, int mese, int anno, Pageable pageable) {
 		try {
 			Calendar calendar = Calendar.getInstance();
@@ -65,18 +66,19 @@ public class ClienteService {
 	}
 
 	// metodo che permette di ricercare un cliente anche con una parte della ragione sociale
-	public Page<Cliente> findByParteRagioneSociale(String nome, Pageable pageable) {
+	public Page<Cliente> findByParteRagioneSociale(String ragioneSociale, Pageable pageable) {
 		try {
-			Page<Cliente> clienti = clienteRepository.findByParteRagioneSociale(nome, pageable);
+			Page<Cliente> clienti = clienteRepository.findByParteRagioneSociale(ragioneSociale, pageable);
 
 			if (clienti.hasContent()) {
 				return clienti;
 			}
-			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
+			
 		} catch (Exception e) {
 
 			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		}
+		return null;
 
 	}
 
@@ -133,7 +135,7 @@ public class ClienteService {
 
 			clienteRepository.deleteById(id);
 		} else {
-			throw new EnergySystemException("Operazione non riuscita! Nessun risultato");
+			throw new EnergySystemException("Operazione non riuscita! Nessun cliente con id " + id);
 		}
 
 	}
