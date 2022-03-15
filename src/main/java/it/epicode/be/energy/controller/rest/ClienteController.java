@@ -129,4 +129,16 @@ public class ClienteController {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
 	}
+
+	@GetMapping(path = "/tuttiiclienti")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+	public ResponseEntity<Page<Cliente>> findAll(Pageable pageable) {
+		Page<Cliente> tuttiClienti = clienteService.findAll(pageable);
+
+		if (tuttiClienti.hasContent()) {
+			return new ResponseEntity<>(tuttiClienti, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		}
+	}
 }

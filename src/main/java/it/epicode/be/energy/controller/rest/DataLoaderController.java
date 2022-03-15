@@ -30,6 +30,6 @@ public class DataLoaderController {
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	public ResponseEntity<String> aggiungiComuni(){
 		loader.caricaComuni();
-		return new ResponseEntity<>("Hint: Ricordati di caricare prima le province! Comuni caricati con successo!!", HttpStatus.OK);
+		return new ResponseEntity<>("Comuni caricati con successo!! \n Hint: Ricordati di caricare prima le province!", HttpStatus.OK);
 	}
 }
