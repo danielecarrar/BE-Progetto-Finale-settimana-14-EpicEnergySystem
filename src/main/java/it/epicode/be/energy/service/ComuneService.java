@@ -8,13 +8,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import it.epicode.be.energy.model.Comune;
+import it.epicode.be.energy.model.Province;
 import it.epicode.be.energy.repository.ComuneRepository;
+import it.epicode.be.energy.repository.ProvinciaRepository;
 
 @Service
 public class ComuneService {
 
 	@Autowired
 	ComuneRepository comuneRepository;
+	
+	@Autowired
+	ProvinciaRepository provinciaRepository;
 
 	public Comune save(Comune comune) {
 		return comuneRepository.save(comune);
@@ -35,7 +40,9 @@ public class ComuneService {
 	public void delete(Long id) {
 		if (comuneRepository.findById(id).isPresent()) {
 			Comune comune = comuneRepository.findById(id).get();
-			comune.setProvincia(null);
+			Province provincia = provinciaRepository.getById(id);
+			
+			provinciaRepository.delete(provincia);
 			comuneRepository.delete(comune);
 		}
 

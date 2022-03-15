@@ -38,7 +38,7 @@ public class ComuneController {
 		if (listaComuni.hasContent()) {
 			return new ResponseEntity<>(listaComuni, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
 
 	}
