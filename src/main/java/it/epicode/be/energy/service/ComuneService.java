@@ -45,7 +45,6 @@ public class ComuneService {
 			provinciaRepository.delete(provincia);
 			comuneRepository.delete(comune);
 		}
-
 	}
 
 	public Comune update(Long id, Comune comuneInserito) {

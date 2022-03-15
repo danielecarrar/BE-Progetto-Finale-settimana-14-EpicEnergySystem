@@ -64,21 +64,18 @@ public class ClienteService {
 
 	}
 
-	// metodo che permette di ricercare un cliente anche con una parte del nome
-	public Page<Cliente> findByParteNome(String nome, Pageable pageable) {
+	// metodo che permette di ricercare un cliente anche con una parte della ragione sociale
+	public Page<Cliente> findByParteRagioneSociale(String nome, Pageable pageable) {
 		try {
-			Page<Cliente> clienti = clienteRepository.findByParteNome(nome, pageable);
+			Page<Cliente> clienti = clienteRepository.findByParteRagioneSociale(nome, pageable);
 
 			if (clienti.hasContent()) {
 				return clienti;
 			}
-			log.error("Non ci sono risultati da visualizzare, riprova");
-			return null;
+			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		} catch (Exception e) {
 
-			e.printStackTrace();
-
-			throw new RuntimeException(e.getMessage());
+			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		}
 
 	}
@@ -87,6 +84,7 @@ public class ClienteService {
 		try {
 			String[] attributi = { "id", "ragioneSociale", "dataInserimento", "dataUltimoContatto" };
 			if (Arrays.stream(attributi).anyMatch(sort::equals)) {
+				//utilizzo oggetto pageable
 				Pageable pageable = PageRequest.of(page, size, Sort.by(sort));
 				Page<Cliente> pageResult = clienteRepository.findAll(pageable);
 				if (pageResult.hasContent()) {
@@ -94,12 +92,10 @@ public class ClienteService {
 				} else
 					return null;
 			}
-			log.error("Nessuna corrispondenza trovata");
-			return null;
 		} catch (Exception e) {
-			throw new RuntimeException();
+			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		}
-
+		return null;
 	}
 
 	public Page<Cliente> findAllSortedByFatturatoAnnuale(int anno, Pageable pageable) {
@@ -107,7 +103,7 @@ public class ClienteService {
 			return clienteRepository.findAllSortedByFatturatoAnnuale(anno, pageable);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new RuntimeException(e.getMessage());
+			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		}
 	}
 
@@ -116,8 +112,7 @@ public class ClienteService {
 			return fatturaRepository.findFatturaByIdCliente(IDCliente, pageable);
 		} catch (Exception e) {
 
-			e.printStackTrace();
-			throw new RuntimeException(e.getMessage());
+			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		}
 	}
 
@@ -176,8 +171,8 @@ public class ClienteService {
 			log.error("Nessun risultato in nessuna provincia!");
 			return null;
 		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException(e.getMessage());
+
+			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		}
 
 	}
@@ -192,7 +187,7 @@ public class ClienteService {
 			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new RuntimeException(e.getMessage());
+			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		}
 
 	}

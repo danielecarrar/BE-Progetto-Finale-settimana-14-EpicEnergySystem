@@ -116,12 +116,12 @@ public class ClienteController {
 		}
 	}
 
-	// RICERCA CLIENTE PER CORRISPONDENZA PARZIALE DEL NOME
+	// RICERCA CLIENTE PER CORRISPONDENZA PARZIALE DELLA RAGIONE SOCIALE
 	@GetMapping(path = "/nomeparzialecliente/{nome}")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-	public ResponseEntity<Page<Cliente>> findAllByParteNome(@PathVariable(required = true) String nome,
+	public ResponseEntity<Page<Cliente>> findAllByParteRagioneSociale(@PathVariable(required = true) String nome,
 			Pageable pageable) {
-		Page<Cliente> clienteTrovato = clienteService.findByParteNome(nome, pageable);
+		Page<Cliente> clienteTrovato = clienteService.findByParteRagioneSociale(nome, pageable);
 
 		if (clienteTrovato.hasContent()) {
 			return new ResponseEntity<>(clienteTrovato, HttpStatus.OK);

@@ -21,15 +21,15 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
 	public Page<Cliente> findAllSortedByFatturatoAnnuale(int anno, Pageable pageable);
 
-	public Page<Cliente> findByDataInserimento(int d, int m, int y, Pageable pageable);
+	public Page<Cliente> findByDataInserimento(int g, int m, int a, Pageable pageable);
 
-	public Page<Cliente> findByDataUltimoContatto(int d, int m, int y, Pageable pageable);
+	public Page<Cliente> findByDataUltimoContatto(int g, int m, int a, Pageable pageable);
 	
 	@Query("Select c from Cliente c Order by c.sedeLegale.comune.provincia")
 	public Page<Cliente> findAllByProvincia(Pageable pageable);
 	
 	@Query("Select c from Cliente c where c.ragioneSociale like '%:s%' ")
-	public Page<Cliente> findByParteNome(String s, Pageable pageable);
+	public Page<Cliente> findByParteRagioneSociale(String s, Pageable pageable);
 	
 	public Page<Cliente> findByOrderByNomeContattoAsc(Pageable pageable);
 }
