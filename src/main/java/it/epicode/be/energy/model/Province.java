@@ -20,4 +20,10 @@ public class Province extends EntityId {
 	
 	private String regione;
 
+	@Override
+	public String toString() {
+		return " di " + nome + " (" + sigla + ")" + ", regione: " + regione;
+	}
+
+	
 }

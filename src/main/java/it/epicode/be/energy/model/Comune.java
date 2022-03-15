@@ -23,10 +23,14 @@ public class Comune extends EntityId {
 	
 	private String nome;
 	
-	//SENZA CASCADE FUNZIONA IL RUNNER
-	//CON CASCADE FUNZIONA INSERIMENTO
-	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 	private Province provincia;
+
+	@Override
+	public String toString() {
+		return " di " + nome + ", provincia: " + provincia;
+	}
+	
+	
 }
