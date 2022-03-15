@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Università di Atlantide - Errore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div class="header-menu">- Epic Energy System Corporation -</div>
+    <div class="container-menu">
+        <div class="header-section">Errore</div>
+        <div class="header-section" th:text="${message}"></div>
+    </div>
+    <div class="link-home">
+        <a href="/">Torna alla Home</a>
+    </div>
+    <div class="footer"><em>Powered by Daniele Carraro</em></div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Database dei clienti - Lista Clienti</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<div class="header-menu">Clienti Presenti</div>
+	<div class="header-section">Elenco clienti</div>
+	<div th:switch="${listaClienti.size()}">
+		<div class="no-item-found" th:case="0">Nessun cliente trovato!</div>
+		<div th:case="*">
+			<table width="100%">
+				<thead>
+					<tr>
+						<th class="header">Ragione Sociale</th>
+						<th class="header">Iva</th>
+						<th class="header">Email</th>
+						<th class="header">Inserimento</th>
+						<th class="header">Ultimo Contatto</th>
+						<th class="header">Fatturato Annuo</th>
+						<th class="header">Pec</th>
+						<th class="header">Tel</th>
+						<th class="header">Tipo</th>
+						<th class="header">Email</th>
+						<th class="header">Nome</th>
+						<th class="header">Cognome</th>
+						<th class="header">Tel</th>
+						<th class="header">Sede Legale</th>
+						<th class="header">Sede Operativa</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cliente : ${listaClienti}">
+						<td th:text="${cliente.ragioneSociale}"></td>
+						<td th:text="${cliente.iva}"></td>
+						<td th:text="${cliente.email}"></td>
+						<td th:text="${cliente.dataInserimento}"></td>
+						<td th:text="${cliente.dataUltimoContatto}"></td>
+						<td th:text="${cliente.fatturatoAnnuale}"></td>
+						<td th:text="${cliente.pec}"></td>
+						<td th:text="${cliente.telefono}"></td>
+						<td th:text="${cliente.tipologiaCliente}"></td>
+						<td th:text="${cliente.emailContatto}"></td>
+						<td th:text="${cliente.nomeContatto}"></td>
+						<td th:text="${cliente.cognomeContatto}"></td>
+						<td th:text="${cliente.numeroContatto}"></td>
+						<td th:text="${cliente.sedeLegale}"></td>
+						<td th:text="${cliente.sedeOperativa}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="link-home">
+		<a href="/">Torna alla Home</a>
+	</div>
+	<div class="footer">Powered by Daniele Carraro</div>
+</body>
+</html>
