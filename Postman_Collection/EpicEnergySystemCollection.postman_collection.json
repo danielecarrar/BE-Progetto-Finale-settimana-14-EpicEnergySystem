@@ -1,0 +1,654 @@
+{
+	"info": {
+		"_postman_id": "2c5143a7-4764-4448-8f54-071b104e5636",
+		"name": "EpicEnergySystemCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login utente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"wgithub2\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup utente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"wgithub2\",\r\n  \"password\": \"1234\",\r\n  \"email\": \"alicemail2@mia.it\",\r\n  \"roles\": [\r\n    \"admin\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fatture",
+			"item": [
+				{
+					"name": "Aggiorna Fattura",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"anno\": 2021,\r\n  \"data\": \"2021-03-15T10:41:55.122Z\",\r\n  \"importo\": 33301,\r\n  \"numeroFattura\": 22,\r\n  \"stato\": \"pagata\",\r\n  \"cliente\": {\r\n    \"ragioneSociale\": \"SRL\",\r\n    \"iva\": \"239482093423\",\r\n    \"email\": \"string@java.fl\",\r\n    \"dataInserimento\": \"2021-03-15T10:41:55.122Z\",\r\n    \"dataUltimoContatto\": \"2022-03-15T10:41:55.122Z\",\r\n    \"fatturatoAnnuale\": 2000000,\r\n    \"pec\": \"string@pec.tt\",\r\n    \"telefono\": \"323213213\",\r\n    \"tipologiaCliente\": \"SPA\",\r\n    \"emailContatto\": \"string@contactmail.cc\",\r\n    \"nomeContatto\": \"Paolone\",\r\n    \"cognomeContatto\": \"Ruzza\",\r\n    \"numeroContatto\": \"3213212321\",\r\n    \"sedeLegale\": {\r\n      \"via\": \"via delle String\",\r\n      \"civico\": 32,\r\n      \"localita\": \"Ravenna\",\r\n      \"cap\": 32423,\r\n      \"comune\": {\r\n        \"nome\": \"Ravenna\",\r\n        \"provincia\": {\r\n          \"sigla\": \"RA\",\r\n          \"nome\": \"Ravenna\",\r\n          \"regione\": \"Emilia-Romagna\"\r\n        }\r\n      }\r\n    },\r\n    \"sedeOperativa\": {\r\n      \"via\": \"via string\",\r\n      \"civico\": 21,\r\n      \"localita\": \"Foggia\",\r\n      \"cap\": 32131,\r\n      \"comune\": {\r\n        \"nome\": \"Foggia\",\r\n        \"provincia\": {\r\n          \"sigla\": \"FG\",\r\n          \"nome\": \"Foggia\",\r\n          \"regione\": \"Umbria\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/fattura/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fattura",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inserisci Fattura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"anno\": 2020,\r\n  \"data\": \"2020-03-15T10:28:54.746Z\",\r\n  \"importo\":20000,\r\n  \"numeroFattura\": 21,\r\n  \"stato\": \"pagata\",\r\n  \"cliente\": {\r\n    \"ragioneSociale\": \"SPA\",\r\n    \"iva\": \"02130120321\",\r\n    \"email\": \"usernew@corp.com\",\r\n    \"dataInserimento\": \"2020-04-15T10:28:54.746Z\",\r\n    \"dataUltimoContatto\": \"2021-03-15T10:28:54.746Z\",\r\n    \"fatturatoAnnuale\": 13213,\r\n    \"pec\": \"loreggia@comune.it\",\r\n    \"telefono\": \"3333333332\",\r\n    \"tipologiaCliente\": \"SPA\",\r\n    \"emailContatto\": \"contact@libero.it\",\r\n    \"nomeContatto\": \"Angelo\",\r\n    \"cognomeContatto\": \"Foregni\",\r\n    \"numeroContatto\": \"33332222111\",\r\n    \"sedeLegale\": {\r\n      \"via\": \"via dante\",\r\n      \"civico\": 21,\r\n      \"localita\": \"Loreggia\",\r\n      \"cap\": 30303,\r\n      \"comune\": {\r\n        \"nome\": \"Loreggia\",\r\n        \"provincia\": {\r\n          \"sigla\": \"LO\",\r\n          \"nome\": \"Loreggia\",\r\n          \"regione\": \"Veneto\"\r\n        }\r\n      }\r\n    },\r\n    \"sedeOperativa\": {\r\n      \"via\": \"via delle string\",\r\n      \"civico\": 21,\r\n      \"localita\": \"Treviso\",\r\n      \"cap\": 30290,\r\n      \"comune\": {\r\n        \"nome\": \"Treviso\",\r\n        \"provincia\": {\r\n          \"sigla\": \"TV\",\r\n          \"nome\": \"Treviso\",\r\n          \"regione\": \"Veneto\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/fattura",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fattura"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Fattura",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/fattura/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fattura",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista Tutte Le Fatture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/fatture",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fatture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fattura ID Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/fatturaid/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fatturaid",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fattura By StatoFattura",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/statofattura/pagata",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"statofattura",
+								"pagata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fattura By Range Importo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rangefattura/1000/30000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rangefattura",
+								"1000",
+								"30000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clienti",
+			"item": [
+				{
+					"name": "Aggiungi Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ragioneSociale\": \"SPA\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"stringLover@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15T11:19:51.075Z\",\r\n  \"dataUltimoContatto\": \"2021-03-15T11:19:51.075Z\",\r\n  \"fatturatoAnnuale\": 300000,\r\n  \"pec\": \"string@pec.com\",\r\n  \"telefono\": \"3213231232\",\r\n  \"tipologiaCliente\": \"SPA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Xieng\",\r\n  \"cognomeContatto\": \"Zao\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Fatturato\",\r\n    \"civico\": 2333,\r\n    \"localita\": \"Umbria\",\r\n    \"cap\": 33043,\r\n    \"comune\": {\r\n      \"nome\": \"Tao\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Tredue\",\r\n        \"regione\": \"Umbria\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Delle rose\",\r\n    \"civico\": 2,\r\n    \"localita\": \"Taormina\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Tredue\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Sasso\",\r\n        \"regione\": \"Emilia-Romagna\"\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/clienti",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clienti"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/clienti/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clienti",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aggiorna Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ragioneSociale\": \"SPA\",\r\n  \"iva\": \"23412341251\",\r\n  \"email\": \"string@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15T11:19:51.075Z\",\r\n  \"dataUltimoContatto\": \"2021-03-15T11:19:51.075Z\",\r\n  \"fatturatoAnnuale\": 300000,\r\n  \"pec\": \"string@pec.com\",\r\n  \"telefono\": \"3213231232\",\r\n  \"tipologiaCliente\": \"SPA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Aronne\",\r\n  \"cognomeContatto\": \"De Gasperi\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Fatturato\",\r\n    \"civico\": 2333,\r\n    \"localita\": \"Umbria\",\r\n    \"cap\": 33043,\r\n    \"comune\": {\r\n      \"nome\": \"Tao\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Tredue\",\r\n        \"regione\": \"Umbria\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Delle rosine\",\r\n    \"civico\": 22,\r\n    \"localita\": \"Taormina\",\r\n    \"cap\": 42433,\r\n    \"comune\": {\r\n      \"nome\": \"Tredu\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Sasso\",\r\n        \"regione\": \"Emilia-Romagna\"\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/clienti/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clienti",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tutti i Clienti presenti",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ragioneSociale\": \"SPA\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"stringLover@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15T11:19:51.075Z\",\r\n  \"dataUltimoContatto\": \"2021-03-15T11:19:51.075Z\",\r\n  \"fatturatoAnnuale\": 300000,\r\n  \"pec\": \"string@pec.com\",\r\n  \"telefono\": \"3213231232\",\r\n  \"tipologiaCliente\": \"SPA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Xieng\",\r\n  \"cognomeContatto\": \"Zao\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Fatturato\",\r\n    \"civico\": 2333,\r\n    \"localita\": \"Umbria\",\r\n    \"cap\": 33043,\r\n    \"comune\": {\r\n      \"nome\": \"Tao\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Tredue\",\r\n        \"regione\": \"Umbria\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Delle rose\",\r\n    \"civico\": 2,\r\n    \"localita\": \"Taormina\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Tredue\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Sasso\",\r\n        \"regione\": \"Emilia-Romagna\"\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tuttiiclienti",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tuttiiclienti"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sigla Provincia Cliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ragioneSociale\": \"SPA\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"stringLover@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15T11:19:51.075Z\",\r\n  \"dataUltimoContatto\": \"2021-03-15T11:19:51.075Z\",\r\n  \"fatturatoAnnuale\": 300000,\r\n  \"pec\": \"string@pec.com\",\r\n  \"telefono\": \"3213231232\",\r\n  \"tipologiaCliente\": \"SPA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Xieng\",\r\n  \"cognomeContatto\": \"Zao\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Fatturato\",\r\n    \"civico\": 2333,\r\n    \"localita\": \"Umbria\",\r\n    \"cap\": 33043,\r\n    \"comune\": {\r\n      \"nome\": \"Tao\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Tredue\",\r\n        \"regione\": \"Umbria\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Delle rose\",\r\n    \"civico\": 2,\r\n    \"localita\": \"Taormina\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Tredue\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Sasso\",\r\n        \"regione\": \"Emilia-Romagna\"\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/provinciacliente/td",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"provinciacliente",
+								"td"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comuni/province Loader",
+			"item": [
+				{
+					"name": "aggiungi province",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/aggiungiprovince",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"aggiungiprovince"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aggiungi comuni",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/aggiungicomuni",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"aggiungicomuni"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comuni",
+			"item": [
+				{
+					"name": "Inserisci Comune",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pianiga\",\r\n  \"provincia\": {\r\n    \"sigla\": \"VE\",\r\n    \"nome\": \"Pianiga\",\r\n    \"regione\": \"Veneto\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/comuni",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comuni"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tutti i Comuni Presenti",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pianiga\",\r\n  \"provincia\": {\r\n    \"sigla\": \"VE\",\r\n    \"nome\": \"Pianiga\",\r\n    \"regione\": \"Veneto\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/comuni",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comuni"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cerca Comune via ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pianiga\",\r\n  \"provincia\": {\r\n    \"sigla\": \"VE\",\r\n    \"nome\": \"Pianiga\",\r\n    \"regione\": \"Veneto\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/comuni/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comuni",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aggiorna Comune",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Dolo\",\r\n  \"provincia\": {\r\n    \"sigla\": \"VE\",\r\n    \"nome\": \"Dolo\",\r\n    \"regione\": \"Veneto\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/comuni/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comuni",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Comune",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pianiga\",\r\n  \"provincia\": {\r\n    \"sigla\": \"VE\",\r\n    \"nome\": \"Pianiga\",\r\n    \"regione\": \"Veneto\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/comuni/7149",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comuni",
+								"7149"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
