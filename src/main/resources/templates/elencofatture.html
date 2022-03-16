@@ -50,7 +50,8 @@
 							<td th:text="${fattura.cliente.nomeContatto}"></td>
 							<td th:text="${fattura.cliente.cognomeContatto}"></td>
 							<td th:text="${fattura.cliente.pec}"></td>
-							<td th:text="${fattura.cliente.sedeLegale.comune}"></td>
+							<td
+								th:text="${fattura.cliente.sedeLegale.comune} ? ${fattura.cliente.sedeLegale.comune} : 'VOCE RIMOSSA'"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -64,6 +65,9 @@
 		<a
 			href="http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config">Gestione
 			Dati</a>
+	</div>
+	<div class="centra animated fadeInDownBig">
+		<a href="/fatture/mostrafatture">Aggiorna Vista</a>
 	</div>
 	<div class="footer animated fadeInDownBig">Powered by Daniele
 		Carraro</div>
