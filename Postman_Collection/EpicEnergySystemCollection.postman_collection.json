@@ -187,7 +187,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/fatturaid/6",
+							"raw": "http://localhost:8080/api/fatturaid/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -196,7 +196,7 @@
 							"path": [
 								"api",
 								"fatturaid",
-								"6"
+								"2"
 							]
 						}
 					},
@@ -229,7 +229,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/rangefattura/1000/30000",
+							"raw": "http://localhost:8080/api/rangefattura/10000/30000",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -238,7 +238,7 @@
 							"path": [
 								"api",
 								"rangefattura",
-								"1000",
+								"10000",
 								"30000"
 							]
 						}
@@ -257,7 +257,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ragioneSociale\": \"SPA\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"stringLover@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15T11:19:51.075Z\",\r\n  \"dataUltimoContatto\": \"2021-03-15T11:19:51.075Z\",\r\n  \"fatturatoAnnuale\": 300000,\r\n  \"pec\": \"string@pec.com\",\r\n  \"telefono\": \"3213231232\",\r\n  \"tipologiaCliente\": \"SPA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Xieng\",\r\n  \"cognomeContatto\": \"Zao\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Fatturato\",\r\n    \"civico\": 2333,\r\n    \"localita\": \"Umbria\",\r\n    \"cap\": 33043,\r\n    \"comune\": {\r\n      \"nome\": \"Tao\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Tredue\",\r\n        \"regione\": \"Umbria\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Delle rose\",\r\n    \"civico\": 2,\r\n    \"localita\": \"Taormina\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Tredue\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Sasso\",\r\n        \"regione\": \"Emilia-Romagna\"\r\n      }\r\n    }\r\n  }\r\n}",
+							"raw": "{\r\n  \"ragioneSociale\": \"SPA\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"stringLover@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15\",\r\n  \"dataUltimoContatto\": \"2021-03-15\",\r\n  \"fatturatoAnnuale\": 300000,\r\n  \"pec\": \"string@pec.com\",\r\n  \"telefono\": \"3213231232\",\r\n  \"tipologiaCliente\": \"SPA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Xieng\",\r\n  \"cognomeContatto\": \"Zao\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Fatturato\",\r\n    \"civico\": 2333,\r\n    \"localita\": \"Umbria\",\r\n    \"cap\": 33043,\r\n    \"comune\": {\r\n      \"nome\": \"Tao\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Tredue\",\r\n        \"regione\": \"Umbria\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Delle rose\",\r\n    \"civico\": 2,\r\n    \"localita\": \"Taormina\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Tredue\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Sasso\",\r\n        \"regione\": \"Emilia-Romagna\"\r\n      }\r\n    }\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -324,7 +324,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/clienti/2",
+							"raw": "http://localhost:8080/api/clienti/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -333,7 +333,7 @@
 							"path": [
 								"api",
 								"clienti",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -422,7 +422,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/tuttiiclienti",
+							"raw": "http://localhost:8080/api/fatturatoannuocliente/300000",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -430,7 +430,37 @@
 							"port": "8080",
 							"path": [
 								"api",
-								"tuttiiclienti"
+								"fatturatoannuocliente",
+								"300000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aggiungi Molti Clienti",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n  \"ragioneSociale\": \"SPA\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"stringLover@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15\",\r\n  \"dataUltimoContatto\": \"2021-03-15\",\r\n  \"fatturatoAnnuale\": 300000,\r\n  \"pec\": \"string@pec.com\",\r\n  \"telefono\": \"3213231232\",\r\n  \"tipologiaCliente\": \"SPA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Xieng\",\r\n  \"cognomeContatto\": \"Zao\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Fatturato\",\r\n    \"civico\": 2333,\r\n    \"localita\": \"Umbria\",\r\n    \"cap\": 33043,\r\n    \"comune\": {\r\n      \"nome\": \"Tao\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Tredue\",\r\n        \"regione\": \"Umbria\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Delle rose\",\r\n    \"civico\": 2,\r\n    \"localita\": \"Taormina\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Tredue\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Sasso\",\r\n        \"regione\": \"Emilia-Romagna\"\r\n      }\r\n    }\r\n  }\r\n},\r\n{\r\n  \"ragioneSociale\": \"SAS\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"Integer@gmail.com\",\r\n  \"dataInserimento\": \"2011-03-15\",\r\n  \"dataUltimoContatto\": \"2020-03-15\",\r\n  \"fatturatoAnnuale\": 90000,\r\n  \"pec\": \"Integer@pec.com\",\r\n  \"telefono\": \"3013231232\",\r\n  \"tipologiaCliente\": \"SAS\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Franco\",\r\n  \"cognomeContatto\": \"Calzavara\",\r\n  \"numeroContatto\": \"301232128\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Lofri\",\r\n    \"civico\": 23,\r\n    \"localita\": \"Toscana\",\r\n    \"cap\": 30323,\r\n    \"comune\": {\r\n      \"nome\": \"Mina\",\r\n      \"provincia\": {\r\n        \"sigla\": \"FR\",\r\n        \"nome\": \"Bragni\",\r\n        \"regione\": \"Lazio\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Delle trovate\",\r\n    \"civico\": 21,\r\n    \"localita\": \"Bragni\",\r\n    \"cap\": 42430,\r\n    \"comune\": {\r\n      \"nome\": \"Uno\",\r\n      \"provincia\": {\r\n        \"sigla\": \"UD\",\r\n        \"nome\": \"Sassi\",\r\n        \"regione\": \"Puglia\"\r\n      }\r\n    }\r\n  }\r\n},\r\n{\r\n  \"ragioneSociale\": \"SRL\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"bigdecimal@gmail.com\",\r\n  \"dataInserimento\": \"2016-03-15\",\r\n  \"dataUltimoContatto\": \"2020-03-15\",\r\n  \"fatturatoAnnuale\": 500000,\r\n  \"pec\": \"bigdecimal@pec.com\",\r\n  \"telefono\": \"3210031232\",\r\n  \"tipologiaCliente\": \"SRL\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Paolo\",\r\n  \"cognomeContatto\": \"Costa\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Ventura\",\r\n    \"civico\": 19,\r\n    \"localita\": \"Umbria\",\r\n    \"cap\": 33040,\r\n    \"comune\": {\r\n      \"nome\": \"Drano\",\r\n      \"provincia\": {\r\n        \"sigla\": \"DT\",\r\n        \"nome\": \"Deturpio\",\r\n        \"regione\": \"Piemonte\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Dante\",\r\n    \"civico\": 2,\r\n    \"localita\": \"Taormina\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Trebase\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TB\",\r\n        \"nome\": \"Frico\",\r\n        \"regione\": \"Toscana\"\r\n      }\r\n    }\r\n  }\r\n},\r\n{\r\n  \"ragioneSociale\": \"SPA\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"boolean@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15\",\r\n  \"dataUltimoContatto\": \"2021-03-15\",\r\n  \"fatturatoAnnuale\": 200000,\r\n  \"pec\": \"boolean@pec.com\",\r\n  \"telefono\": \"3313231232\",\r\n  \"tipologiaCliente\": \"SPA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Giulio\",\r\n  \"cognomeContatto\": \"Giuliani\",\r\n  \"numeroContatto\": \"321232120\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Giuliani\",\r\n    \"civico\": 233,\r\n    \"localita\": \"Altinate\",\r\n    \"cap\": 33044,\r\n    \"comune\": {\r\n      \"nome\": \"Alto\",\r\n      \"provincia\": {\r\n        \"sigla\": \"AT\",\r\n        \"nome\": \"Altino\",\r\n        \"regione\": \"Umbria\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Dei massi\",\r\n    \"civico\": 21,\r\n    \"localita\": \"Remico\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Frosinone\",\r\n      \"provincia\": {\r\n        \"sigla\": \"FR\",\r\n        \"nome\": \"Sasso\",\r\n        \"regione\": \"Emilia-Romagna\"\r\n      }\r\n    }\r\n  }\r\n},\r\n{\r\n  \"ragioneSociale\": \"PA\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"double@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15\",\r\n  \"dataUltimoContatto\": \"2021-03-15\",\r\n  \"fatturatoAnnuale\": 300000,\r\n  \"pec\": \"doubledouble@pec.com\",\r\n  \"telefono\": \"3213231232\",\r\n  \"tipologiaCliente\": \"PA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Saverio\",\r\n  \"cognomeContatto\": \"Mulli\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Logica\",\r\n    \"civico\": 213,\r\n    \"localita\": \"Veneto\",\r\n    \"cap\": 33040,\r\n    \"comune\": {\r\n      \"nome\": \"Frollo\",\r\n      \"provincia\": {\r\n        \"sigla\": \"SI\",\r\n        \"nome\": \"Siviglia\",\r\n        \"regione\": \"Veneto\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Leoni\",\r\n    \"civico\": 23,\r\n    \"localita\": \"Laonara\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Tanzo\",\r\n      \"provincia\": {\r\n        \"sigla\": \"SI\",\r\n        \"nome\": \"Siviglia\",\r\n        \"regione\": \"Veneto\"\r\n      }\r\n    }\r\n  }\r\n},\r\n{\r\n  \"ragioneSociale\": \"SPA\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"long@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15\",\r\n  \"dataUltimoContatto\": \"2021-03-15\",\r\n  \"fatturatoAnnuale\": 300000,\r\n  \"pec\": \"long@pec.com\",\r\n  \"telefono\": \"3213231232\",\r\n  \"tipologiaCliente\": \"SPA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Enrico\",\r\n  \"cognomeContatto\": \"Piave\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Fiume\",\r\n    \"civico\": 12,\r\n    \"localita\": \"Veneto\",\r\n    \"cap\": 33043,\r\n    \"comune\": {\r\n      \"nome\": \"Taggi\",\r\n      \"provincia\": {\r\n        \"sigla\": \"PD\",\r\n        \"nome\": \"Padova\",\r\n        \"regione\": \"Veneto\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Volpe\",\r\n    \"civico\": 8,\r\n    \"localita\": \"Preganziol\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Pregi\",\r\n      \"provincia\": {\r\n        \"sigla\": \"PG\",\r\n        \"nome\": \"Sasso\",\r\n        \"regione\": \"Emilia-Romagna\"\r\n      }\r\n    }\r\n  }\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/piuclienti",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"piuclienti"
 							]
 						}
 					},
@@ -575,7 +605,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/comuni/1",
+							"raw": "http://localhost:8080/api/comuni/7143",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -584,7 +614,7 @@
 							"path": [
 								"api",
 								"comuni",
-								"1"
+								"7143"
 							]
 						}
 					},
@@ -605,7 +635,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/comuni/1",
+							"raw": "http://localhost:8080/api/comuni/7143",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -614,7 +644,7 @@
 							"path": [
 								"api",
 								"comuni",
-								"1"
+								"7143"
 							]
 						}
 					},
@@ -635,7 +665,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/comuni/7149",
+							"raw": "http://localhost:8080/api/comuni/7143",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -644,7 +674,7 @@
 							"path": [
 								"api",
 								"comuni",
-								"7149"
+								"7143"
 							]
 						}
 					},
