@@ -36,21 +36,20 @@ public class ClienteService {
 	@Autowired
 	IndirizzoRepository indirizzoRepository;
 
-	public Page<Cliente> findByDataInserimento(int giorno, int mese, int anno, Pageable pageable) {
-		try {
-			// creo una nuova data e la valorizzo con dati in input
-			Calendar calendar = Calendar.getInstance();
-			calendar.set(anno, mese, giorno);
-			Date data = calendar.getTime();
-
-			return clienteRepository.findAllByDataInserimento(data, pageable);
-		} catch (Exception e) {
-
-			e.printStackTrace();
-			throw new RuntimeException(e.getMessage());
-		}
-
-	}
+//	public Page<Cliente> findByDataInserimento(int giorno, int mese, int anno, Pageable pageable) {
+//		try {
+//			// creo una nuova data e la valorizzo con dati in input
+//			Calendar calendar = Calendar.getInstance();
+//			calendar.set(anno, mese, giorno);
+//			Date data = calendar.getTime();
+//
+//			return clienteRepository.findAllByDataInserimento(data, pageable);
+//		} catch (Exception e) {
+//
+//			e.printStackTrace();
+//			throw new RuntimeException(e.getMessage());
+//		}
+//	}
 
 	public Page<Cliente> findByDataUltimoContatto(int giorno, int mese, int anno, Pageable pageable) {
 		try {
@@ -208,5 +207,18 @@ public class ClienteService {
 
 	public List<Cliente> findAll() {
 		return clienteRepository.findAll();
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	public List<Cliente> save(List<Cliente> cliente) {
+		
+		return clienteRepository.saveAll(cliente);
 	}
 }
