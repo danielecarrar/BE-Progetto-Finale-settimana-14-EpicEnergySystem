@@ -37,13 +37,13 @@ public class ClienteController {
 		Cliente nuovoCliente = clienteService.save(cliente); // 201
 		return new ResponseEntity<>(nuovoCliente, HttpStatus.CREATED);
 	}
-	
+
 	@PostMapping(path = "/piuclienti")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<List<Cliente>> saveAll(@RequestBody List<Cliente> cliente) {
 
 		List<Cliente> nuovoCliente = clienteService.save(cliente); // 201
-		
+
 		return new ResponseEntity<>(nuovoCliente, HttpStatus.CREATED);
 	}
 
@@ -67,8 +67,8 @@ public class ClienteController {
 	// RICERCA PER FATTURATO ANNUO
 	@GetMapping(path = "/fatturatoannuocliente/{fatturatoannuo}")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-	public ResponseEntity<Page<Cliente>> findAllSortedByFatturatoAnnuale(@PathVariable(required = true) int fatturatoannuo,
-			Pageable pageable) {
+	public ResponseEntity<Page<Cliente>> findAllSortedByFatturatoAnnuale(
+			@PathVariable(required = true) int fatturatoannuo, Pageable pageable) {
 		Page<Cliente> clienteTrovato = clienteService.findAllSortedByFatturatoAnnuale(fatturatoannuo, pageable);
 
 		if (clienteTrovato.hasContent()) {
@@ -92,21 +92,6 @@ public class ClienteController {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
 	}
-
-	// CERCA CLIENTE PER DATA INSERIMENTO
-//	@GetMapping(path = "/clientedatainserimento/{gg}/{mm}/{aa}")
-//	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-//	public ResponseEntity<Page<Cliente>> findAllByDataInserimento(@PathVariable(required = true) int gg,
-//			@PathVariable(required = true) int mm, @PathVariable(required = true) int aa, Pageable pageable) {
-//
-//		Page<Cliente> clienteTrovato = clienteService.findByDataInserimento(gg, mm, aa, pageable);
-//
-//		if (clienteTrovato.hasContent()) {
-//			return new ResponseEntity<>(clienteTrovato, HttpStatus.OK);
-//		} else {
-//			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-//		}
-//	}
 
 	// CERCA CLIENTE PER SIGLA DELLA PROVINCIA
 	@GetMapping(path = "/provinciacliente/{sigla}")
@@ -152,4 +137,18 @@ public class ClienteController {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
 	}
+	// CERCA CLIENTE PER DATA INSERIMENTO
+//	@GetMapping(path = "/clientedatainserimento/{gg}/{mm}/{aa}")
+//	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+//	public ResponseEntity<Page<Cliente>> findAllByDataInserimento(@PathVariable(required = true) int gg,
+//			@PathVariable(required = true) int mm, @PathVariable(required = true) int aa, Pageable pageable) {
+//
+//		Page<Cliente> clienteTrovato = clienteService.findByDataInserimento(gg, mm, aa, pageable);
+//
+//		if (clienteTrovato.hasContent()) {
+//			return new ResponseEntity<>(clienteTrovato, HttpStatus.OK);
+//		} else {
+//			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+//		}
+//	}
 }
