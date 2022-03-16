@@ -68,12 +68,12 @@ public class ClienteService {
 
 	}
 
-	public Page<Cliente> findAllSorted(Integer page, Integer size, String sort) {
+	public Page<Cliente> findAllSorted(Integer page, Integer size, String byElement) {
 		try {
-			String[] attributi = { "id", "ragioneSociale", "dataInserimento", "dataUltimoContatto" };
-			if (Arrays.stream(attributi).anyMatch(sort::equals)) {
+			String[] attributi = { "id", "dataUltimoContatto", "ragioneSociale", "dataInserimento" };
+			if (Arrays.stream(attributi).anyMatch(byElement::equals)) {
 				// utilizzo oggetto pageable
-				Pageable pageable = PageRequest.of(page, size, Sort.by(sort));
+				Pageable pageable = PageRequest.of(page, size, Sort.by(byElement));
 				Page<Cliente> pageResult = clienteRepository.findAll(pageable);
 				if (pageResult.hasContent()) {
 					return pageResult;

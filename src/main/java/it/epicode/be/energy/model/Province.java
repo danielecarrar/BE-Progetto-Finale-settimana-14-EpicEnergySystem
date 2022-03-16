@@ -24,6 +24,4 @@ public class Province extends EntityId {
 	public String toString() {
 		return " " + nome + " (" + sigla + ")" + ", regione: " + regione;
 	}
-
-	
 }
