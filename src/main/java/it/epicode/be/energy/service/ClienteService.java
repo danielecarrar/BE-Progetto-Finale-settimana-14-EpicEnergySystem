@@ -198,6 +198,7 @@ public class ClienteService {
 
 		return clienteRepository.saveAll(cliente);
 	}
+	// CERCA CLIENTE PER DATA INSERIMENTO
 //	public Page<Cliente> findByDataInserimento(int giorno, int mese, int anno, Pageable pageable) {
 //	try {
 //		// creo una nuova data e la valorizzo con dati in input

@@ -2,19 +2,32 @@
 <html>
 <head>
 <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
 <link rel="stylesheet" href="/style.css" />
 <meta charset="ISO-8859-1">
 <title>Home Page</title>
 </head>
 <body>
-	<h2 class="h2index">Benvenuto!</h2>
-	<h2 class="h2index">Pagina Iniziale</h2>
+	<h2 class="bg-info d-flex justify-content-center center animated fadeInDownBig">Epic Energy CRM System</h2>
+	<h2 class="text-light bg-dark d-flex justify-content-center center animated fadeInDownBig">Benvenuto in DataViewer PRO!</h2>
+
 	<div class="animated infinite bounce center">Scegli l'azione da
 		compiere!</div>
-	<div class="center">
-		<a style="text-align: center" href="/clienti/mostraelenco"><mark>Consulta
-			Elenco Dei Clienti</mark></a>
+	<div class="centera animated fadeInDownBig">
+		<a href="/clienti/mostraelenco">Consulta
+				Elenco Dei Clienti</a>
 	</div>
+	
+	<div class="centera animated fadeInDownBig">
+		<a href="http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config">Gestione Dati</a>
+	</div>
+
+	<div class="footer animated fadeInDownBig">Powered by Daniele Carraro</div>
 </body>
 </html>

@@ -5,20 +5,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-	<div class="bg-info d-flex justify-content-center">Elenco di
-		Tutti i clienti attualmente presenti</div>
+	<div
+		class="bg-info d-flex justify-content-center animated fadeInDownBig">Elenco
+		di Tutti i clienti attualmente presenti</div>
 	<div th:switch="${listaClienti.size()}">
-		<div class="text-light bg-dark d-flex justify-content-center center"
+		<div
+			class="text-light bg-dark d-flex justify-content-center center animated fadeInDownBig"
 			th:case="0">Info: Nessun cliente trovato!</div>
 		<div th:case="*">
 			<div class="table-responsive">
-				<table class="table table-hover table" width="100%">
+				<table class="table table-hover table animated fadeInDownBig"
+					width="100%">
 					<thead>
 						<tr>
 							<th class="header">Ragione Sociale</th>
@@ -59,9 +65,15 @@
 			</div>
 		</div>
 	</div>
-	<div class="center">
+	<div class="centera animated fadeInDownBig">
 		<a href="/">Torna alla Home</a>
 	</div>
-	<div class="footer">Powered by Daniele Carraro</div>
+	<div class="centera animated fadeInDownBig">
+		<a
+			href="http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config">Gestione
+			Dati</a>
+	</div>
+	<div class="footer animated fadeInDownBig">Powered by Daniele
+		Carraro</div>
 </body>
 </html>

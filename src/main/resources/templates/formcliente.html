@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" th:href="@{/css/layout.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>form aggiunta cliente</title>
+</head>
+<body>
+	<h1>Inserisci i dettagli del nuovo cliente</h1>
+	<form action="#" th:action="@{/clienti/addcliente}"
+		th:object="${cliente}" method="post">
+
+		<p>
+			Ragione Sociale: <input type="text" th:field="*{ragioneSociale}" />
+		</p>
+
+		<p>
+			P.Iva: <input type="text" th:field="*{iva}" />
+		</p>
+
+		<p>
+			Email: <input type="text" th:field="*{email}" />
+		</p>
+
+		<p>
+			Fatturato Annuo: <input type="text" th:field="*{fatturatoAnnuale}" />
+		</p>
+
+		<p>
+			PEC: <input type="email" th:field="*{pec}" />
+		</p>
+
+		<p>
+			Telefono: <input type="text" th:field="*{telefono}" />
+		</p>
+
+		<p>
+			Tipologia: <input type="text" th:field="*{tipologiaCliente}" />
+		</p>
+
+		<p>
+			Nome: <input type="text" th:field="*{nomeContatto}" />
+		</p>
+
+		<p>
+			Cognome: <input type="text" th:field="*{cognomeContatto}" />
+		</p>
+
+		<br>
+
+		<p>
+			<input type="submit" value="Submit" /> <input type="reset"
+				value="Reset" />
+		</p>
+		
+	</form>
+	<a href="/clienti/mostraelenco">Lista Clienti</a>
+</body>
+</html>

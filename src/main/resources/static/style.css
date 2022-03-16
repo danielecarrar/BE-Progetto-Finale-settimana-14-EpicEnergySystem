@@ -47,6 +47,10 @@ h2 {
 	padding: 15px;
 }
 
+a {
+	color: darkblue;
+}
+
 @keyframes pulsate {
     
   100% {
@@ -80,5 +84,14 @@ h2 {
 	
 .center {
 	text-align: center;
-	padding-top: 100px;
+	padding-top: 50px;
+	padding-bottom: 20px;
+	margin-bottom: 0px;
+}
+
+.centera {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 0px;
 }
