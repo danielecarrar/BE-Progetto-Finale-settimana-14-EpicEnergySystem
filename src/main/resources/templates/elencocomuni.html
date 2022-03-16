@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Database dei comuni - Lista Comuni</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+	<div
+		class="bg-info d-flex justify-content-center animated fadeInDownBig">Elenco
+		di Tutti i comuni attualmente presenti</div>
+	<div th:switch="${listaComuni.size()}">
+		<div
+			class="text-light bg-dark d-flex justify-content-center center animated fadeInDownBig"
+			th:case="0">Info: Nessun comune presente!</div>
+		<div th:case="*">
+			<div class="table-responsive">
+				<table class="table table-hover table animated fadeInDownBig"
+					width="100%">
+					<thead>
+						<tr>
+							<th class="header">Id del Comune</th>
+							<th class="header">Nome</th>
+							<th class="header">Provincia</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="comune : ${listaComuni}">
+							<td th:text="${comune.id}"></td>
+							<td th:text="${comune.nome}"></td>
+							<td th:text="${comune.provincia}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="centra animated fadeInDownBig">
+		<a href="/">Torna alla Home</a>
+	</div>
+	<div class="centra animated fadeInDownBig">
+		<a
+			href="http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config">Gestione
+			Dati</a>
+	</div>
+	<div class="footer animated fadeInDownBig">Powered by Daniele
+		Carraro</div>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package it.epicode.be.energy.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class ComuneService {
 
 	@Autowired
 	ComuneRepository comuneRepository;
-	
+
 	@Autowired
 	ProvinciaRepository provinciaRepository;
 
@@ -41,7 +42,7 @@ public class ComuneService {
 		if (comuneRepository.findById(id).isPresent()) {
 			Comune comune = comuneRepository.findById(id).get();
 			Province provincia = provinciaRepository.getById(id);
-			
+
 			provinciaRepository.delete(provincia);
 			comuneRepository.delete(comune);
 		}
@@ -49,7 +50,7 @@ public class ComuneService {
 
 	public Comune update(Long id, Comune comuneInserito) {
 		Optional<Comune> comune = comuneRepository.findById(id);
-		
+
 		if (comune.isPresent()) {
 			Comune comuneDaAggiornare = comune.get();
 			comuneDaAggiornare.setNome(comuneInserito.getNome());
@@ -58,5 +59,9 @@ public class ComuneService {
 			return comuneRepository.save(comuneDaAggiornare);
 		}
 		return null;
+	}
+
+	public List<Comune> findAll() {
+		return comuneRepository.findAll();
 	}
 }

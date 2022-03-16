@@ -29,7 +29,7 @@ public class Comune extends EntityId {
 
 	@Override
 	public String toString() {
-		return " di " + nome + ", provincia: " + provincia;
+		return " " + nome + ", provincia: " + provincia;
 	}
 	
 	
