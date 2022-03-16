@@ -57,4 +57,11 @@ public class TestAuthentication {
 	public void provinceWhenUtenteMockIsAuthenticated() throws Exception {
 		this.mockMvc.perform(get("/api/aggiungiprovince")).andExpect(status().isOk());
 	}
+	
+	@Test
+	public void testControllerClienti() throws Exception {
+		
+	}
+	
+	
 }

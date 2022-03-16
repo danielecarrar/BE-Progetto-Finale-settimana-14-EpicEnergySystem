@@ -1,6 +1,7 @@
 package it.epicode.be.energy.service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,5 +80,9 @@ public class FatturaService {
 
 	public Page<Fattura> findAll(Pageable pageable) {
 		return fatturaRepository.findAll(pageable);
+	}
+
+	public List<Fattura> findAll() {
+		return fatturaRepository.findAll();
 	}
 }

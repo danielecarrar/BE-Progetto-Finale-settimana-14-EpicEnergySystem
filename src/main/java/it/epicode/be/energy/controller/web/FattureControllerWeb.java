@@ -6,22 +6,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import it.epicode.be.energy.service.ComuneService;
+import it.epicode.be.energy.service.FatturaService;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("/comuni")
-public class ComuniControllerWeb {
+@RequestMapping("/fatture")
+public class FattureControllerWeb {
 
 	@Autowired
-	ComuneService comuneService;
+	FatturaService fattureService;
 	
-	@GetMapping("/mostracomuni")
+	@GetMapping("/mostrafatture")
 	public ModelAndView mostraElencoComuni() {
-		log.info("Visualizzazione elenco comuni presenti su pagina HTML");
-		ModelAndView view = new ModelAndView("elencocomuni");
-		view.addObject("listaComuni", comuneService.findAll());
+		log.info("Visualizzazione elenco fatture presenti su pagina HTML");
+		ModelAndView view = new ModelAndView("elencofatture");
+		view.addObject("listaFatture", fattureService.findAll());
 
 		return view;
 	}
