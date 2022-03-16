@@ -21,10 +21,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	public Page<Cliente> findAll(Pageable pageable);
 
 	public Page<Cliente> findAllSortedByFatturatoAnnuale(BigDecimal fatturato, Pageable pageable);
-
-	public Page<Cliente> findByDataInserimento(int g, int m, int a, Pageable pageable);
-
-	public Page<Cliente> findByDataUltimoContatto(int g, int m, int a, Pageable pageable);
 	
 	@Query("Select c from Cliente c Order by c.sedeLegale.comune.provincia")
 	public Page<Cliente> findAllByProvincia(Pageable pageable); 
@@ -33,4 +29,10 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	public Page<Cliente> findByParteRagioneSociale(String s, Pageable pageable);
 	
 	public Page<Cliente> findByOrderByNomeContattoAsc(Pageable pageable);
+	
+	//not implemented
+	
+	public Page<Cliente> findByDataInserimento(int g, int m, int a, Pageable pageable);
+
+	public Page<Cliente> findByDataUltimoContatto(int g, int m, int a, Pageable pageable);
 }

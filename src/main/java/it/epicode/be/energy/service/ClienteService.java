@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.commons.beanutils.converters.BigDecimalConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -198,19 +197,4 @@ public class ClienteService {
 
 		return clienteRepository.saveAll(cliente);
 	}
-	// CERCA CLIENTE PER DATA INSERIMENTO
-//	public Page<Cliente> findByDataInserimento(int giorno, int mese, int anno, Pageable pageable) {
-//	try {
-//		// creo una nuova data e la valorizzo con dati in input
-//		Calendar calendar = Calendar.getInstance();
-//		calendar.set(anno, mese, giorno);
-//		Date data = calendar.getTime();
-//
-//		return clienteRepository.findAllByDataInserimento(data, pageable);
-//	} catch (Exception e) {
-//
-//		e.printStackTrace();
-//		throw new RuntimeException(e.getMessage());
-//	}
-//}
 }
