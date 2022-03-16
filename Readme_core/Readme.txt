@@ -271,6 +271,8 @@ Indirizzo per frontend con Thymeleaf:
 
 	---------------------------------DELETE eliminazione cliente via id - testato --OK
 
+	---------------------------------GET findAllSorted cliente - testato --OK
+
 	---------------------------------PUT aggiornamento cliente con body: - testato --OK
 {
   "ragioneSociale": "SPA",
@@ -591,6 +593,5 @@ Indirizzo per frontend con Thymeleaf:
 -Errore quando si cerca di inserire un numero che inizia con '0'
 -il comune risulta 'eliminato' quando si elimina con id, anche se non c'è effettivamente alcun comune con quell'id
 -get by ragione sociale parziale non funzionante v2: ora mostra eccezione personalizzata 
--get findallsorted non funziona, da rivedere!
 
 @Author Daniele Carraro -BE-
