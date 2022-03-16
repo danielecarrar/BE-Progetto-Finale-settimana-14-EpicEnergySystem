@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.epicode.be.energy.model.Cliente;
 import it.epicode.be.energy.service.ClienteService;
@@ -81,10 +82,11 @@ public class ClienteController {
 	// CERCA CLIENTI ORDINANDOLI, utilizzo paginazione
 	@GetMapping(path = "/clientiordinati/{page}/{size}/{sort}")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+	@Operation(description = "Elementi consentiti: id, dataUltimoContatto, ragioneSociale, dataInserimento")
 	public ResponseEntity<Page<Cliente>> findAllPaged(@PathVariable(required = true) Integer page,
-			@PathVariable(required = true) Integer size, @PathVariable(required = true) String sort,
+			@PathVariable(required = true) Integer size, @PathVariable(required = true) String element,
 			Pageable pageable) {
-		Page<Cliente> risultato = clienteService.findAllSorted(page, size, sort);
+		Page<Cliente> risultato = clienteService.findAllSorted(page, size, element);
 
 		if (risultato.hasContent()) {
 			return new ResponseEntity<>(risultato, HttpStatus.OK);

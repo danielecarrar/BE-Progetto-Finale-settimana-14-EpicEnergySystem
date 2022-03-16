@@ -1,5 +1,6 @@
 package it.epicode.be.energy.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,9 @@ public class ProvinciaService {
 
 	public Optional<Province> findBySigla(String sigla) {
 		return provinciaRepository.findBySigla(sigla);
+	}
+
+	public List<Province> findAll() {
+		return provinciaRepository.findAll();
 	}
 }
