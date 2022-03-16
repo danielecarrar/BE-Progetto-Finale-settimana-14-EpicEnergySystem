@@ -12,7 +12,7 @@
 }
   
   body{
-  background-color: aliceblue;
+  background-color:#91B2C7;
   }
   
   
@@ -28,14 +28,17 @@ h1, h2 {
   font-weight: 400;
   padding-top: 30px;
 }
+  h2index {
+    font-size: 4.2rem;
+  }
   
 h1 {
-    font-size: 5.2rem;
+    font-size: 4.2rem;
     animation: pulsate 0.11s ease-in-out infinite alternate;     
 }
   
 h2 {
-    font-size: 1.8rem;
+    font-size: 2.8rem;
 }
 
 .footer {

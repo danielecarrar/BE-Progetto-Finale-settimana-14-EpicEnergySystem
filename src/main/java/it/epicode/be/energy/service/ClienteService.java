@@ -1,11 +1,13 @@
 package it.epicode.be.energy.service;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.commons.beanutils.converters.BigDecimalConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,9 +36,9 @@ public class ClienteService {
 	@Autowired
 	IndirizzoRepository indirizzoRepository;
 
-	
 	public Page<Cliente> findByDataInserimento(int giorno, int mese, int anno, Pageable pageable) {
 		try {
+			// creo una nuova data e la valorizzo con dati in input
 			Calendar calendar = Calendar.getInstance();
 			calendar.set(anno, mese, giorno);
 			Date data = calendar.getTime();
@@ -65,7 +67,8 @@ public class ClienteService {
 
 	}
 
-	// metodo che permette di ricercare un cliente anche con una parte della ragione sociale
+	// metodo che permette di ricercare un cliente anche con una parte della ragione
+	// sociale
 	public Page<Cliente> findByParteRagioneSociale(String ragioneSociale, Pageable pageable) {
 		try {
 			Page<Cliente> clienti = clienteRepository.findByParteRagioneSociale(ragioneSociale, pageable);
@@ -73,7 +76,7 @@ public class ClienteService {
 			if (clienti.hasContent()) {
 				return clienti;
 			}
-			
+
 		} catch (Exception e) {
 
 			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
@@ -86,7 +89,7 @@ public class ClienteService {
 		try {
 			String[] attributi = { "id", "ragioneSociale", "dataInserimento", "dataUltimoContatto" };
 			if (Arrays.stream(attributi).anyMatch(sort::equals)) {
-				//utilizzo oggetto pageable
+				// utilizzo oggetto pageable
 				Pageable pageable = PageRequest.of(page, size, Sort.by(sort));
 				Page<Cliente> pageResult = clienteRepository.findAll(pageable);
 				if (pageResult.hasContent()) {
@@ -100,9 +103,10 @@ public class ClienteService {
 		return null;
 	}
 
-	public Page<Cliente> findAllSortedByFatturatoAnnuale(int anno, Pageable pageable) {
+	public Page<Cliente> findAllSortedByFatturatoAnnuale(int fatturatoanno, Pageable pageable) {
 		try {
-			return clienteRepository.findAllSortedByFatturatoAnnuale(anno, pageable);
+			BigDecimal fatturato = BigDecimal.valueOf(fatturatoanno);
+			return clienteRepository.findAllSortedByFatturatoAnnuale(fatturato, pageable);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");

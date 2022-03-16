@@ -54,11 +54,11 @@ public class ClienteController {
 	}
 
 	// RICERCA PER FATTURATO ANNUO
-	@GetMapping(path = "/fatturatoannuocliente/{anno}")
+	@GetMapping(path = "/fatturatoannuocliente/{fatturatoannuo}")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-	public ResponseEntity<Page<Cliente>> findAllSortedByFatturatoAnnuale(@PathVariable(required = true) int anno,
+	public ResponseEntity<Page<Cliente>> findAllSortedByFatturatoAnnuale(@PathVariable(required = true) int fatturatoannuo,
 			Pageable pageable) {
-		Page<Cliente> clienteTrovato = clienteService.findAllSortedByFatturatoAnnuale(anno, pageable);
+		Page<Cliente> clienteTrovato = clienteService.findAllSortedByFatturatoAnnuale(fatturatoannuo, pageable);
 
 		if (clienteTrovato.hasContent()) {
 			return new ResponseEntity<>(clienteTrovato, HttpStatus.OK);
@@ -70,7 +70,7 @@ public class ClienteController {
 	// CERCA CLIENTI ORDINANDOLI, utilizzo paginazione
 	@GetMapping(path = "/clientiordinati/{page}/{size}/{sort}")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-	public ResponseEntity<Page<Cliente>> findAllSorted(@PathVariable(required = true) Integer page,
+	public ResponseEntity<Page<Cliente>> findAllPaged(@PathVariable(required = true) Integer page,
 			@PathVariable(required = true) Integer size, @PathVariable(required = true) String sort,
 			Pageable pageable) {
 		Page<Cliente> risultato = clienteService.findAllSorted(page, size, sort);

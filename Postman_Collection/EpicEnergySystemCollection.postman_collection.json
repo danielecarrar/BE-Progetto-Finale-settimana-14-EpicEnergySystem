@@ -403,6 +403,38 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Tutti i Clienti via fatturato annuo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ragioneSociale\": \"SPA\",\r\n  \"iva\": \"23412341231\",\r\n  \"email\": \"stringLover@gmail.com\",\r\n  \"dataInserimento\": \"2010-03-15T11:19:51.075Z\",\r\n  \"dataUltimoContatto\": \"2021-03-15T11:19:51.075Z\",\r\n  \"fatturatoAnnuale\": 300000,\r\n  \"pec\": \"string@pec.com\",\r\n  \"telefono\": \"3213231232\",\r\n  \"tipologiaCliente\": \"SPA\",\r\n  \"emailContatto\": \"emailme@gmail.com\",\r\n  \"nomeContatto\": \"Xieng\",\r\n  \"cognomeContatto\": \"Zao\",\r\n  \"numeroContatto\": \"321232123\",\r\n  \"sedeLegale\": {\r\n    \"via\": \"A. Fatturato\",\r\n    \"civico\": 2333,\r\n    \"localita\": \"Umbria\",\r\n    \"cap\": 33043,\r\n    \"comune\": {\r\n      \"nome\": \"Tao\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Tredue\",\r\n        \"regione\": \"Umbria\"\r\n      }\r\n    }\r\n  },\r\n  \"sedeOperativa\": {\r\n    \"via\": \"Delle rose\",\r\n    \"civico\": 2,\r\n    \"localita\": \"Taormina\",\r\n    \"cap\": 42432,\r\n    \"comune\": {\r\n      \"nome\": \"Tredue\",\r\n      \"provincia\": {\r\n        \"sigla\": \"TD\",\r\n        \"nome\": \"Sasso\",\r\n        \"regione\": \"Emilia-Romagna\"\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tuttiiclienti",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tuttiiclienti"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
