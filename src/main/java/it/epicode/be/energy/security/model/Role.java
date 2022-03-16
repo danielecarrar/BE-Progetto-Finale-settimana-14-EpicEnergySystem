@@ -20,4 +20,10 @@ public class Role {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "name")
 	private Roles roleName;
+
+	@Override
+	public String toString() {
+		return "id: " + id + ", ruolo: " + roleName;
+	}
+
 }

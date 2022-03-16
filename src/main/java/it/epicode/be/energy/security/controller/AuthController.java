@@ -100,9 +100,7 @@ public class AuthController {
 					break;
 				default:
 					throw new Exception("Ruolo NON trovato!");
-
 				}
-
 			}
 			userReg.setRoles(ruoli);
 
@@ -110,7 +108,5 @@ public class AuthController {
 		userRepository.save(userReg);
 		return new ResponseEntity<>("Utente inserito con successo, ecco i dati: " + userReg.toString(),
 				HttpStatus.CREATED);
-
 	}
-
 }
