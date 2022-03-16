@@ -1,8 +1,8 @@
-Mappa Strutturale e funzionale esercizio
+Mappa Strutturale e funzionale progetto `(Java 11, Eclipse IDE 4.22.0)`
 
-ENTITY DEL PROGETTO FINALE:
+		.ENTITY PRESENTI:
 
-EntityId -> classe creata in quanto tutte le entity condividono un attributo (id), per evitare codice boilerplate, evitare "DRY",
+EntityId -> classe creata in quanto tutte le entity condividono un attributo (id), per evitare codice boilerplate, DRY,
 ed utilizzare l'ereditarietà di java, estendiamo le classi a cui serve tale attributo, con quest'ultima
 
 Cliente:
@@ -317,7 +317,7 @@ Indirizzo per frontend con Thymeleaf:
     }
   }
 }
-	---------------------------------Aggiunta Multipla Di 6 clienti (quanti si vuole) in una sola richiesta POST con body: -testato --OK
+	---------------------------------Aggiunta Multipla Di 6 clienti (o quanti si vuole) in una sola richiesta POST con body: -testato --OK
 
 [
   {
@@ -592,6 +592,9 @@ Indirizzo per frontend con Thymeleaf:
 
 -Errore quando si cerca di inserire un numero che inizia con '0'
 -il comune risulta 'eliminato' quando si elimina con id, anche se non c'è effettivamente alcun comune con quell'id
--get by ragione sociale parziale non funzionante v2: ora mostra eccezione personalizzata 
+-get by ragione sociale parziale non funzionante v2: ora mostra eccezione personalizzata
+-qualche cascade risulta problematico, ad es. se aggiungo una fattura
+ed elimino un cliente, avremo un errore
 
-@Author Daniele Carraro -BE-
+
+								@Author Daniele Carraro -BE-
