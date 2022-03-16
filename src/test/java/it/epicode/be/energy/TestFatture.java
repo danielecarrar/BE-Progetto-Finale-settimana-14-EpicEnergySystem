@@ -23,4 +23,11 @@ public class TestFatture {
 		assertNotNull(f.getAnno());
 		assertEquals(null, f.getCliente());
 	}
+	
+	@Test
+	public void testAutoDataFattura() throws Exception {
+		Fattura f = new Fattura();
+		f.setData();
+		assertNotNull(f.getData());
+	}
 }
