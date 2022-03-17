@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import it.epicode.be.energy.exceptions.EnergySystemException;
 import it.epicode.be.energy.model.Comune;
 import it.epicode.be.energy.service.ComuneService;
 
@@ -60,7 +61,11 @@ public class ComuneController {
 	@DeleteMapping(path = "/comuni/{id}")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<String> delete(@PathVariable Long id) {
+		try {
 		comuneService.delete(id);
+		}catch(Exception e) {
+			throw new EnergySystemException("Comune con id " + id + " non eliminato! Causa: Non è possibile eliminare un comune che referenzia delle fatture attive!");
+		}
 		return new ResponseEntity<>("Comune eliminato", HttpStatus.OK);
 	}
 	

@@ -65,9 +65,7 @@ Indirizzo per frontend con Thymeleaf:
 
 
 
-
 	---------------------------------POST - INSERIRE UNA FATTURA -testato --OK
-
 {
   "anno": 2020,
   "data": "2020-03-15T10:28:54.746Z",
@@ -118,7 +116,6 @@ Indirizzo per frontend con Thymeleaf:
     }
   }
 }
-
 	---------------------------------GET fattura By Stato - testato --OK
 
 	---------------------------------GET tutte le fatture - testato --OK
@@ -180,11 +177,9 @@ Indirizzo per frontend con Thymeleaf:
 
 
 
-
 							/////////////////////////////////////////////
 							*******************COMUNI*******************
 							////////////////////////////////////////////
-
 
 
 
@@ -318,7 +313,6 @@ Indirizzo per frontend con Thymeleaf:
   }
 }
 	---------------------------------Aggiunta Multipla Di 6 clienti (o quanti si vuole) in una sola richiesta POST con body: -testato --OK
-
 [
   {
   "ragioneSociale": "SPA",
@@ -579,7 +573,6 @@ Indirizzo per frontend con Thymeleaf:
   }
 }
 ]
-
 	---------------------------------Aggiunta province ed aggiunta comuni testati, prima vanno aggiunte le province (hint aggiunto quando si inseriscono i comuni) --OK
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -589,12 +582,12 @@ Indirizzo per frontend con Thymeleaf:
 							////////////////////////////////////////////
 
 
-
 -Errore quando si cerca di inserire un numero che inizia con '0'
 -il comune risulta 'eliminato' quando si elimina con id, anche se non c'è effettivamente alcun comune con quell'id
--get by ragione sociale parziale non funzionante v2: ora mostra eccezione personalizzata
--qualche cascade risulta problematico, ad es. se aggiungo una fattura
-ed elimino un cliente, avremo un errore
+-se carico prima un comune e poi richiamo il comando per caricare il file csv, ottengo un errore
+-se carico tutti i comuni dal csv, poi aggiungo una fattura, poi elimino il comune della fattura, ottengo un errore,
+mentre se elimino il comune della fattura SENZA aver caricato il csv, funziona - v2: ora mostra eccezione personalizzata
+-get by ragione sociale parziale non funzionante - v2: ora mostra eccezione personalizzata
 
 
 								@Author Daniele Carraro -BE-

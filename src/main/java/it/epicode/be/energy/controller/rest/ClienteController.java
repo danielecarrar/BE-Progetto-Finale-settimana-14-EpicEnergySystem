@@ -22,7 +22,6 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.epicode.be.energy.exceptions.EnergySystemException;
 import it.epicode.be.energy.model.Cliente;
 import it.epicode.be.energy.service.ClienteService;
-import it.epicode.be.energy.service.FatturaService;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -32,15 +31,12 @@ public class ClienteController {
 	@Autowired
 	ClienteService clienteService;
 
-	@Autowired // QUI 2
-	FatturaService fatturaService;
-
 	// INSERIRE UN NUOVO CLIENTE
 	@PostMapping(path = "/clienti")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
 
-		Cliente nuovoCliente = clienteService.save(cliente); // 201
+		Cliente nuovoCliente = clienteService.save(cliente);
 		return new ResponseEntity<>(nuovoCliente, HttpStatus.CREATED);
 	}
 
@@ -48,7 +44,7 @@ public class ClienteController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<List<Cliente>> saveAll(@RequestBody List<Cliente> cliente) {
 
-		List<Cliente> nuovoCliente = clienteService.save(cliente); // 201
+		List<Cliente> nuovoCliente = clienteService.save(cliente);
 
 		return new ResponseEntity<>(nuovoCliente, HttpStatus.CREATED);
 	}
@@ -92,9 +88,9 @@ public class ClienteController {
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@Operation(description = "Elementi consentiti: id, dataUltimoContatto, ragioneSociale, dataInserimento")
 	public ResponseEntity<Page<Cliente>> findAllPaged(@PathVariable(required = true) Integer page,
-			@PathVariable(required = true) Integer size, @PathVariable(required = true) String element,
+			@PathVariable(required = true) Integer size, @PathVariable(required = true) String sort,
 			Pageable pageable) {
-		Page<Cliente> risultato = clienteService.findAllSorted(page, size, element);
+		Page<Cliente> risultato = clienteService.findAllSorted(page, size, sort);
 
 		if (risultato.hasContent()) {
 			return new ResponseEntity<>(risultato, HttpStatus.OK);
@@ -123,7 +119,7 @@ public class ClienteController {
 	}
 
 	// RICERCA CLIENTE PER CORRISPONDENZA PARZIALE DELLA RAGIONE SOCIALE
-	@GetMapping(path = "/nomeparzialecliente/{nome}")
+	@GetMapping(path = "/ragionesocialeparziale/{nome}")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	public ResponseEntity<Page<Cliente>> findAllByParteRagioneSociale(@PathVariable(required = true) String nome,
 			Pageable pageable) {
