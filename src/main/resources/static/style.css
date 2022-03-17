@@ -123,15 +123,16 @@ a {
 	color: darkblue;
 }
 
-body{
-     background-color:#91B2C7;
-      
+body{ 
+	
+    background-color:#91B2C7;
+
 }
 
 div#footer{
     background:lightblue;
     bottom:0;
-    height:40px;
+    height:27px;
     position:absolute;
     width:100%;
     text-align:center;
