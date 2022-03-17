@@ -12,14 +12,14 @@ Cliente:
 
 TipologiaCliente: Enum che identifica il tipo di cliente
 
-Indirizzo -> ManyToOne con Comune, piu indirizzi hanno un comune
+Indirizzo -> ManyToOne con Comune (piu indirizzi hanno un comune)
 
 Fatture -> ManyToOne con Cliente (più fatture possono essere di un cliente)
 
-Comune -> ManyToOne con Provincia; più comuni hanno una provincia
+Comune -> ManyToOne con Provincia (più comuni hanno una provincia)
 
 Provincia -> (file.csv) ha 3 String, dobbiamo caricare dal file csv i dati ed inserirli nel database, in modo "manuale",
-cio significa che andranno aggiunti in un controller e richiamati poi da un endpoint specifico
+ciò significa che andranno aggiunti in un controller e richiamati poi da un endpoint specifico
 
 		
 		.REPOSITORY (nessuna annotazione, sono interfacce)
@@ -30,14 +30,14 @@ la classe da referenziare, il tipo di chiave primaria (es. Clienti, Long).
 Con questa estensione, rendiamo disponibili i metodi CRUD, una volta istanziata la repository.
 Possiamo inoltre implementare i nostri metodi custom, detti "query methods", i quali avranno il nome dell'operazione
 da effettuare + By "elemento", scritto con la prima lettera maiuscola, anche se nella classe è minuscola
-(es. findByNome(String nome)).
+(es. findByNome(String nome))
 
 
 		.SERVICE (@service / @autowired)
 
 Vengono utilizzati poi nei controller:
 si usa l'annotazione @autowired per istanziare una repository: in queste classi infatti andremo ad utilizzare i metodi di
-ognuna di esse per effettuare operazioni. Si utilizza la classe Optional, in quanto si potrebbe NON restituire nulla.
+ognuna di esse per effettuare operazioni. Si utilizza la classe Optional, in quanto si potrebbe NON restituire nulla
 
 		.CONTROLLER(@restController / @RequestMapping)
 
@@ -573,7 +573,8 @@ Indirizzo per frontend con Thymeleaf:
   }
 }
 ]
-	---------------------------------Aggiunta province ed aggiunta comuni testati, prima vanno aggiunte le province (hint aggiunto quando si inseriscono i comuni) --OK
+	---------------------------------Aggiunta province ed aggiunta comuni testati, 
+	prima vanno aggiunte le province altrimenti i comuni non saranno aggiunti ("hint" aggiunto quando si inseriscono i comuni) --OK
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -585,8 +586,8 @@ Indirizzo per frontend con Thymeleaf:
 -Errore quando si cerca di inserire un numero che inizia con '0'
 -il comune risulta 'eliminato' quando si elimina con id, anche se non c'è effettivamente alcun comune con quell'id
 -se carico prima un comune e poi richiamo il comando per caricare il file csv, ottengo un errore
--se carico tutti i comuni dal csv, poi aggiungo una fattura, poi elimino il comune della fattura, ottengo un errore,
-mentre se elimino il comune della fattura SENZA aver caricato il csv, funziona - v2: ora mostra eccezione personalizzata
+-se carico tutti i comuni dal csv, poi aggiungo una fattura, poi elimino il comune della fattura, ottengo un errore (gestito),
+MENTRE se elimino il comune della fattura SENZA aver caricato il csv, funziona
 -get by ragione sociale parziale non funzionante - v2: ora mostra eccezione personalizzata
 
 
