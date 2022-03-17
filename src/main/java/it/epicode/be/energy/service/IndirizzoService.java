@@ -41,23 +41,22 @@ public class IndirizzoService {
 			ind.setComune(null);
 			indirizzoRepository.delete(ind);
 		}
-
 	}
 
 	public Indirizzo update(Long id, Indirizzo indirizzo) {
 		Optional<Indirizzo> indirizzoTrovato = indirizzoRepository.findById(id);
 		if (indirizzoTrovato.isPresent()) {
-			
+
 			Indirizzo indirizzoDaAggiornare = indirizzoTrovato.get();
-			
+
 			indirizzoDaAggiornare.setCap(indirizzo.getCap());
 			indirizzoDaAggiornare.setCivico(indirizzo.getCivico());
 			indirizzoDaAggiornare.setComune(indirizzo.getComune());
 			indirizzoDaAggiornare.setVia(indirizzo.getVia());
 			indirizzoDaAggiornare.setLocalita(indirizzo.getLocalita());
-			
+
 			return indirizzoDaAggiornare;
-			
+
 		} else {
 			throw new EnergySystemException("Indirizzo non presente!");
 		}

@@ -40,7 +40,6 @@ public class FatturaController {
 		} else {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
-
 	}
 
 	// INSERIRE NUOVA FATTURA
@@ -49,7 +48,6 @@ public class FatturaController {
 	public ResponseEntity<Fattura> save(@RequestBody Fattura fattura) {
 		Fattura fatturaDaSalvare = fatturaService.save(fattura);
 		return new ResponseEntity<>(fatturaDaSalvare, HttpStatus.CREATED);
-
 	}
 
 	// AGGIORNARE FATTURA ESISTENTE
@@ -58,7 +56,6 @@ public class FatturaController {
 	public ResponseEntity<Fattura> update(@PathVariable Long id, @RequestBody Fattura fattura) {
 		Fattura fatturaAggiornata = fatturaService.update(id, fattura);
 		return new ResponseEntity<>(fatturaAggiornata, HttpStatus.OK);
-
 	}
 
 	// ELIMINARE FATTURA VIA ID
@@ -67,7 +64,6 @@ public class FatturaController {
 	public ResponseEntity<String> delete(@PathVariable Long id) {
 		fatturaService.delete(id);
 		return new ResponseEntity<>("Fattura eliminata!", HttpStatus.OK);
-
 	}
 
 	// TROVA FATTURA TRAMITE ID DEL CLIENTE
@@ -97,7 +93,6 @@ public class FatturaController {
 		} else {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
-
 	}
 
 	// TROVA TUTTE LE FATTURE DISPONIBILI

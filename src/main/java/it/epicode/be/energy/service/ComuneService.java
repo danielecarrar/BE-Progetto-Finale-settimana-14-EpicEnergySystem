@@ -48,8 +48,6 @@ public class ComuneService {
 		return comuneRepository.findById(id);
 	}
 
-	
-
 	public Comune update(Long id, Comune comuneInserito) {
 		Optional<Comune> comune = comuneRepository.findById(id);
 
@@ -66,16 +64,16 @@ public class ComuneService {
 	public List<Comune> findAll() {
 		return comuneRepository.findAll();
 	}
-	
+
 	public void delete(Long id) {
 		if (comuneRepository.findById(id).isPresent()) {
 			Comune comune = comuneRepository.findById(id).get();
 			Optional<Province> provincia = provinciaRepository.findById(id);
 			Optional<Indirizzo> indirizzo = indirizzoRepository.findById(id);
 			Optional<Cliente> cliente = clienteRepository.findById(id);
-			
+
 			comune.setProvincia(null);
-			
+
 			if (cliente.isPresent()) {
 				cliente.get().setSedeLegale(null);
 				cliente.get().setSedeOperativa(null);

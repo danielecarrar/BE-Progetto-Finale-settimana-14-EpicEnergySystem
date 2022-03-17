@@ -31,6 +31,4 @@ public class Comune extends EntityId {
 	public String toString() {
 		return " " + nome + ", provincia: " + provincia;
 	}
-	
-	
 }

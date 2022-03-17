@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import it.epicode.be.energy.security.service.UserDetailsServiceImpl;
 import it.epicode.be.energy.security.util.AuthTokenFilter;
 
-//classe utile ad abilitare le funzioni di sicurezza avanzata in Spring
+//  Classe utile ad abilitare le funzioni di sicurezza avanzata di Spring Security
 
 @Configuration
 @EnableWebSecurity

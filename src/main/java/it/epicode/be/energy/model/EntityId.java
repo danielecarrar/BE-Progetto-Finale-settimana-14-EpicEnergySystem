@@ -6,7 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import lombok.Data;
-//classe in cui sfruttiamo l'ereditarietà di Java (TUTTE le entity hanno un ID in comune)
+
+// Classe in cui sfruttiamo l'ereditarietà di Java (TUTTE le entity hanno un ID in comune)
 
 @MappedSuperclass
 @Data

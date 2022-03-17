@@ -38,7 +38,6 @@ public class FatturaService {
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}
-
 	}
 
 	public Page<Fattura> findByRange(BigDecimal min, BigDecimal max, Pageable pageable) {

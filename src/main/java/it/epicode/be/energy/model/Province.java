@@ -1,4 +1,5 @@
 package it.epicode.be.energy.model;
+
 import javax.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,9 +16,9 @@ import lombok.NoArgsConstructor;
 public class Province extends EntityId {
 
 	private String sigla;
-	
+
 	private String nome;
-	
+
 	private String regione;
 
 	@Override

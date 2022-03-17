@@ -35,6 +35,7 @@ public class ClientiControllerWeb {
 		return view;
 	}
 
+	// METODI NON ANCORA IMPLEMENTATI
 	@GetMapping("/mostraformaggiungi")
 	public String mostraFormAggiungi(Cliente cliente, Model model) {
 		return "formcliente";
@@ -56,7 +57,7 @@ public class ClientiControllerWeb {
 
 		Optional<Cliente> clienteTmp = clienteService.findById(id);
 		if (clienteTmp.isPresent()) {
-			ModelAndView view = new ModelAndView("aggiornacliente"); // HTML
+			ModelAndView view = new ModelAndView("aggiornacliente"); // nome HTML
 			view.addObject("cliente", clienteTmp.get());
 			return view;
 		}
@@ -78,7 +79,7 @@ public class ClientiControllerWeb {
 			view.addObject("listaClienti", clienteService.findAll());
 			return view;
 		} else {
-			return new ModelAndView("error").addObject("messaggio",
+			return new ModelAndView("error").addObject("msg",
 					"Nessun cliente con id " + id + " presente nel database!");
 		}
 	}
