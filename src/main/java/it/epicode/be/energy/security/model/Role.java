@@ -23,7 +23,7 @@ public class Role {
 
 	@Override
 	public String toString() {
-		return "id: " + id + ", ruolo: " + roleName;
+		return "" + roleName;
 	}
 
 }

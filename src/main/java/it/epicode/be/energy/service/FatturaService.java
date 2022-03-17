@@ -59,7 +59,7 @@ public class FatturaService {
 			fatturaDaEliminare.get().setCliente(null);
 			fatturaRepository.deleteById(id);
 		} else {
-			throw new EnergySystemException("Nessun Risultato!");
+			throw new EnergySystemException("Nessuna fattura con id " + id + " presente!");
 		}
 	}
 
@@ -75,7 +75,7 @@ public class FatturaService {
 			fatturaDaAggiornare.setCliente(fattura.getCliente());
 			return fatturaRepository.save(fatturaDaAggiornare);
 		} else
-			throw new EnergySystemException("Impossibile aggiornare la fattura!");
+			throw new EnergySystemException("Impossibile aggiornare la fattura! Controlla che l'id sia corretto!");
 	}
 
 	public Page<Fattura> findAll(Pageable pageable) {
