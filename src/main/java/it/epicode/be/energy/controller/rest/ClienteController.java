@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import it.epicode.be.energy.exceptions.EnergySystemException;
 import it.epicode.be.energy.model.Cliente;
 import it.epicode.be.energy.service.ClienteService;
+import it.epicode.be.energy.service.FatturaService;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -29,6 +31,9 @@ public class ClienteController {
 
 	@Autowired
 	ClienteService clienteService;
+
+	@Autowired // QUI 2
+	FatturaService fatturaService;
 
 	// INSERIRE UN NUOVO CLIENTE
 	@PostMapping(path = "/clienti")
@@ -49,12 +54,16 @@ public class ClienteController {
 	}
 
 	// ELIMINARE UN CLIENTE ESISTENTE (tramite pk, ovvero id)
-	@DeleteMapping(path = "/clienti/{id}")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public ResponseEntity<String> delete(@PathVariable Long id) {
-		clienteService.delete(id);
-		return new ResponseEntity<>("Cliente eliminato con successo!", HttpStatus.OK);
-	}
+		@DeleteMapping(path = "/clienti/{id}")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
+		public ResponseEntity<String> delete(@PathVariable Long id) {
+			try {
+			clienteService.delete(id);
+			}catch(Exception e) {
+				throw new EnergySystemException("Cliente con id " + id + " non eliminato! Cause comuni: 1) Non è presente nel Database 2)Non è possibile eliminare clienti con fatture attive!");
+			}
+			return new ResponseEntity<>("Cliente eliminato con successo!", HttpStatus.OK);
+		}
 
 	// AGGIORNARE UN CLIENTE ESISTENTE
 	@PutMapping(path = "/clienti/{id}")
@@ -62,7 +71,6 @@ public class ClienteController {
 	public ResponseEntity<Cliente> update(@PathVariable Long id, @RequestBody Cliente cliente) {
 		Cliente clienteAggiornato = clienteService.update(id, cliente);
 		return new ResponseEntity<>(clienteAggiornato, HttpStatus.OK);
-
 	}
 
 	// RICERCA PER FATTURATO ANNUO

@@ -35,7 +35,9 @@ public class Indirizzo extends EntityId {
 
 	@Override
 	public String toString() {
+		if(this.comune != null && !this.via.isBlank()) {
 		return "Via: " + via + ", civico: " + civico + ", localita: " + localita + ", cap: " + cap + ", comune: "
-				+ comune;
+				+ comune;}
+		return "NON SPECIFICATO";
 	}
 }
