@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 
-@OpenAPIDefinition(info = @Info(title = "EnergySystem API", version = "v0.4.9", description = "Epic Energy System REST Service - Gestione clienti e fatture", contact = @Contact(email = "daniele._k@gmail.com", name = "Daniele Carraro", url = "https://github.com/danielecarrar/")))
+@OpenAPIDefinition(info = @Info(title = "EnergySystem API", version = "v0.7.9", description = "Epic Energy System REST Service - Gestione clienti e fatture", contact = @Contact(email = "daniele._k@gmail.com", name = "Daniele Carraro", url = "https://github.com/danielecarrar/")))
 @Configuration
 @SecurityScheme(name = "bearerAuth", type = SecuritySchemeType.HTTP, bearerFormat = "JWT", scheme = "bearer")
 public class SwaggerConfig {
