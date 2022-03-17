@@ -99,7 +99,7 @@ public class AuthController {
 					ruoli.add(ruoloU.get());
 					break;
 				default:
-					throw new Exception("Ruolo NON trovato!");
+					throw new Exception("Ruolo NON presente! Disponibili 'admin' e 'user'");
 				}
 			}
 			userReg.setRoles(ruoli);
