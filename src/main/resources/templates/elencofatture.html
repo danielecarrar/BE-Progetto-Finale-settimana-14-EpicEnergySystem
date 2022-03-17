@@ -17,6 +17,9 @@
 	<div
 		class="bg-info d-flex justify-content-center animated fadeInDownBig">Elenco
 		di tutte le fatture attualmente presenti</div>
+		<div
+		class="bg-info d-flex justify-content-center animated fadeInDownBig"><span>&#128072;&#127997;</span><a href="/">Indietro</a>
+		</div>
 	<div th:switch="${listaFatture.size()}">
 		<div
 			class="text-light bg-dark d-flex justify-content-center center animated fadeInDownBig"
@@ -51,7 +54,7 @@
 							<td th:text="${fattura.cliente.cognomeContatto}"></td>
 							<td th:text="${fattura.cliente.pec}"></td>
 							<td
-								th:text="${fattura.cliente.sedeLegale.comune} ? ${fattura.cliente.sedeLegale.comune} : 'VOCE RIMOSSA'"></td>
+								th:text="${fattura.cliente.sedeLegale} ? ${fattura.cliente.sedeLegale} : 'NON SPECIFICATO'"></td>
 						</tr>
 					</tbody>
 				</table>
