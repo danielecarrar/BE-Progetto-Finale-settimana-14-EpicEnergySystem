@@ -90,13 +90,17 @@ public class ClienteController {
 	public ResponseEntity<Page<Cliente>> findAllPaged(@PathVariable(required = true) Integer page,
 			@PathVariable(required = true) Integer size, @PathVariable(required = true) String sort,
 			Pageable pageable) {
+		try {
 		Page<Cliente> risultato = clienteService.findAllSorted(page, size, sort);
-
 		if (risultato.hasContent()) {
 			return new ResponseEntity<>(risultato, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
+		}catch(Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		}
+		
 	}
 
 	// CERCA CLIENTE PER SIGLA DELLA PROVINCIA
