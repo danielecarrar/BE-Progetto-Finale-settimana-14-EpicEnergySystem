@@ -1,7 +1,5 @@
 package it.epicode.be.energy;
 
-import static org.assertj.core.api.Assertions.assertThatNullPointerException;
-import static org.mockito.Mockito.RETURNS_SMART_NULLS;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -13,8 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithAnonymousUser;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
-
-import it.epicode.be.energy.service.ClienteService;
 
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -58,10 +54,7 @@ public class TestAuthentication {
 		this.mockMvc.perform(get("/api/aggiungiprovince")).andExpect(status().isOk());
 	}
 	
-	@Test
-	public void testControllerClienti() throws Exception {
-		
-	}
+	
 	
 	
 }
