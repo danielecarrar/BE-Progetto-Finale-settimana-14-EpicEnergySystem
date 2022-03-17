@@ -54,7 +54,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"userName\": \"wgithub2\",\r\n  \"password\": \"1234\",\r\n  \"email\": \"alicemail2@mia.it\",\r\n  \"roles\": [\r\n    \"admin\"\r\n  ]\r\n}",
+							"raw": "{\r\n  \"userName\": \"wgithub2\",\r\n  \"password\": \"1234\",\r\n  \"email\": \"alicemail2@mail.it\",\r\n  \"roles\": [\r\n    \"admin\"\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -245,6 +245,26 @@
 					},
 					"response": []
 				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		},
 		{
@@ -294,7 +314,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/clienti/1",
+							"raw": "http://localhost:8080/api/clienti/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -303,7 +323,7 @@
 							"path": [
 								"api",
 								"clienti",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -389,7 +409,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/provinciacliente/td",
+							"raw": "http://localhost:8080/api/provinciacliente/at",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -398,7 +418,7 @@
 							"path": [
 								"api",
 								"provinciacliente",
-								"td"
+								"at"
 							]
 						}
 					},
@@ -422,7 +442,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/fatturatoannuocliente/300000",
+							"raw": "http://localhost:8080/api/fatturatoannuocliente/2000000",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -431,7 +451,7 @@
 							"path": [
 								"api",
 								"fatturatoannuocliente",
-								"300000"
+								"2000000"
 							]
 						}
 					},
@@ -605,7 +625,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/comuni/7143",
+							"raw": "http://localhost:8080/api/comuni/1101",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -614,7 +634,7 @@
 							"path": [
 								"api",
 								"comuni",
-								"7143"
+								"1101"
 							]
 						}
 					},
@@ -635,7 +655,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/comuni/7143",
+							"raw": "http://localhost:8080/api/comuni/1101",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -644,7 +664,7 @@
 							"path": [
 								"api",
 								"comuni",
-								"7143"
+								"1101"
 							]
 						}
 					},
@@ -665,7 +685,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/comuni/7143",
+							"raw": "http://localhost:8080/api/comuni/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -674,7 +694,7 @@
 							"path": [
 								"api",
 								"comuni",
-								"7143"
+								"1"
 							]
 						}
 					},
