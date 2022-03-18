@@ -229,7 +229,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/rangefattura/10000/30000",
+							"raw": "http://localhost:8080/api/rangefattura/10000/40000",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -239,7 +239,7 @@
 								"api",
 								"rangefattura",
 								"10000",
-								"30000"
+								"40000"
 							]
 						}
 					},
@@ -314,7 +314,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/clienti/2",
+							"raw": "http://localhost:8080/api/clienti/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -323,7 +323,7 @@
 							"path": [
 								"api",
 								"clienti",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -442,7 +442,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/fatturatoannuocliente/2000000",
+							"raw": "http://localhost:8080/api/fatturatoannuocliente/13213",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -451,7 +451,7 @@
 							"path": [
 								"api",
 								"fatturatoannuocliente",
-								"2000000"
+								"13213"
 							]
 						}
 					},
@@ -472,7 +472,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/piuclienti",
+							"raw": "http://localhost:8080/api/salvapiuclienti",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -480,7 +480,7 @@
 							"port": "8080",
 							"path": [
 								"api",
-								"piuclienti"
+								"salvapiuclienti"
 							]
 						}
 					},
@@ -625,7 +625,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/comuni/1101",
+							"raw": "http://localhost:8080/api/comuni/7142",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -634,7 +634,7 @@
 							"path": [
 								"api",
 								"comuni",
-								"1101"
+								"7142"
 							]
 						}
 					},
@@ -655,7 +655,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/comuni/1101",
+							"raw": "http://localhost:8080/api/comuni/7143",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -664,7 +664,7 @@
 							"path": [
 								"api",
 								"comuni",
-								"1101"
+								"7143"
 							]
 						}
 					},
@@ -685,7 +685,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/comuni/1",
+							"raw": "http://localhost:8080/api/comuni/7143",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -694,7 +694,7 @@
 							"path": [
 								"api",
 								"comuni",
-								"1"
+								"7143"
 							]
 						}
 					},
