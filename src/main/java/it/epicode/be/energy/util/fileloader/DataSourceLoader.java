@@ -16,8 +16,8 @@ import com.opencsv.CSVReaderBuilder;
 
 import it.epicode.be.energy.model.Comune;
 import it.epicode.be.energy.model.Province;
-import it.epicode.be.energy.repository.ComuneRepository;
-import it.epicode.be.energy.repository.ProvinciaRepository;
+import it.epicode.be.energy.service.ComuneService;
+import it.epicode.be.energy.service.ProvinciaService;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
@@ -25,10 +25,10 @@ import lombok.extern.slf4j.Slf4j;
 public class DataSourceLoader implements CommandLineRunner {
 
 	@Autowired
-	ProvinciaRepository provinciaRepository;
+	ProvinciaService provinciaService;
 
 	@Autowired
-	ComuneRepository comuneRepository;
+	ComuneService comuneService;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -43,7 +43,7 @@ public class DataSourceLoader implements CommandLineRunner {
 
 			while ((values = reader.readNext()) != null) {
 
-				provinciaRepository.save(new Province(values[0], values[1], values[2]));
+				provinciaService.save(new Province(values[0], values[1], values[2]));
 			}
 		} catch (FileNotFoundException e) {
 
@@ -60,9 +60,9 @@ public class DataSourceLoader implements CommandLineRunner {
 			String[] values = null;
 			while ((values = reader.readNext()) != null) {
 
-				Optional<Province> p = provinciaRepository.findByNome(values[3]);
+				Optional<Province> p = provinciaService.findByNome(values[3]);
 				if (!p.isEmpty()) {
-					comuneRepository.save(new Comune(values[2], p.get()));
+					comuneService.save(new Comune(values[2], p.get()));
 				}
 			}
 		} catch (FileNotFoundException e) {

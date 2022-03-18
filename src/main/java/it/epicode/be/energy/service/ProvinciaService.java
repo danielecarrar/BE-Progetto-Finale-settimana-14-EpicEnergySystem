@@ -26,4 +26,8 @@ public class ProvinciaService {
 	public List<Province> findAll() {
 		return provinciaRepository.findAll();
 	}
+
+	public Optional<Province> findByNome(String string) {
+		return provinciaRepository.findByNome(string);
+	}
 }
