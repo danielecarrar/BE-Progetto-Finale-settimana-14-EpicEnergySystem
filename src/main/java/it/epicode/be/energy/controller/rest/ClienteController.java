@@ -39,7 +39,7 @@ public class ClienteController {
 		Cliente nuovoCliente = clienteService.save(cliente);
 		return new ResponseEntity<>(nuovoCliente, HttpStatus.CREATED);
 	}
-	//DA MODIFICARE
+	
 	@PostMapping(path = "/salvapiuclienti")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<List<Cliente>> saveAll(@RequestBody List<Cliente> cliente) {
