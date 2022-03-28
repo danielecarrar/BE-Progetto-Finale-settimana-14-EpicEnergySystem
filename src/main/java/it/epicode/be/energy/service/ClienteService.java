@@ -47,7 +47,6 @@ public class ClienteService {
 			e.printStackTrace();
 			throw new RuntimeException(e.getMessage());
 		}
-
 	}
 
 	// metodo che permette di ricercare un cliente anche con una parte della ragione
@@ -59,13 +58,10 @@ public class ClienteService {
 			if (clienti.hasContent()) {
 				return clienti;
 			}
-
 		} catch (Exception e) {
-
 			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		}
 		return null;
-
 	}
 
 	public Page<Cliente> findAllSorted(Integer page, Integer size, String element) {
@@ -163,7 +159,6 @@ public class ClienteService {
 
 			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		}
-
 	}
 
 	public Page<Cliente> findByOrderByNomeContattoAsc(Pageable pageable) {
@@ -178,7 +173,6 @@ public class ClienteService {
 			e.printStackTrace();
 			throw new EnergySystemException("Non ci sono risultati da visualizzare, riprova");
 		}
-
 	}
 
 	public Page<Cliente> findAll(Pageable pageable) {
